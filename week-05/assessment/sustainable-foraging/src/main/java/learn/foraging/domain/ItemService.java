@@ -3,10 +3,11 @@ package learn.foraging.domain;
 import learn.foraging.data.ItemRepository;
 import learn.foraging.models.Category;
 import learn.foraging.models.Item;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
-
+@Service
 public class ItemService {
 
     private final ItemRepository repository;
@@ -24,18 +25,23 @@ public class ItemService {
         Result<Item> result = new Result<>();
         if (item == null) {
             result.addErrorMessage("Item must not be null.");
+            result.setResultType(ResultType.INVALID);
             return result;
         }
 
         if (item.getName() == null || item.getName().isBlank()) {
             result.addErrorMessage("Item name is required.");
+            result.setResultType(ResultType.INVALID);
+            return result;
         }
 
         if (item.getDollarPerKilogram() == null) {
             result.addErrorMessage("$/Kg is required.");
+            result.setResultType(ResultType.INVALID);
         } else if (item.getDollarPerKilogram().compareTo(BigDecimal.ZERO) < 0
                 || item.getDollarPerKilogram().compareTo(new BigDecimal("7500.00")) > 0) {
             result.addErrorMessage("$/Kg must be between 0.00 and 7500.00.");
+            result.setResultType(ResultType.INVALID);
         }
 
         if (!result.isSuccess()) {

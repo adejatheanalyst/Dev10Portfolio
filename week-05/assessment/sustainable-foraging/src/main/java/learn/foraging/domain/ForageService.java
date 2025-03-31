@@ -4,11 +4,12 @@ import learn.foraging.data.ForageRepository;
 import learn.foraging.data.ForagerRepository;
 import learn.foraging.data.ItemRepository;
 import learn.foraging.models.Forage;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-
+@Service
 public class ForageService {
 
     private final ForageRepository forageRepository;
@@ -63,18 +64,22 @@ public class ForageService {
 
         if (forage.getDate() == null) {
             result.addErrorMessage("Forage date is required.");
+            result.setResultType(ResultType.INVALID);
         }
 
         if (forage.getForager() == null) {
             result.addErrorMessage("Forager is required.");
+            result.setResultType(ResultType.INVALID);
         }
 
         if (forage.getItem() == null) {
             result.addErrorMessage("Item is required.");
+            result.setResultType(ResultType.INVALID);
         }
 
         if(forage.getKilograms() == null) {
             result.addErrorMessage("Kilograms are required.");
+            result.setResultType(ResultType.INVALID);
         }
 
         return result;
@@ -84,11 +89,13 @@ public class ForageService {
         // No future dates.
         if (forage.getDate().isAfter(LocalDate.now())) {
             result.addErrorMessage("Forage date cannot be in the future.");
+            result.setResultType(ResultType.INVALID);
         }
 
         if (forage.getKilograms().compareTo(BigDecimal.ZERO) <= 0
                 || forage.getKilograms().compareTo(new BigDecimal("250")) > 0) {
             result.addErrorMessage("Kilograms must be a positive number less than 250.0");
+            result.setResultType(ResultType.INVALID);
         }
     }
 
@@ -101,10 +108,12 @@ public class ForageService {
 
         if (forage.getForager().getId() <= 0) {
             result.addErrorMessage("Forager does not exist.");
+            result.setResultType(ResultType.INVALID);
         }
 
         if (itemRepository.findById(forage.getItem().getId()) == null) {
             result.addErrorMessage("Item does not exist.");
+            result.setResultType(ResultType.INVALID);
         }
     }
 }

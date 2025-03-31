@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ForagerRepository {
     Forager findById(int id);
-
+    Forager create(Forager forager);
+    boolean deleteById(int id);
     List<Forager> findByLastName(String lastNamePrefix);
-
     List<Forager> findByState(String stateAbbr);
 }

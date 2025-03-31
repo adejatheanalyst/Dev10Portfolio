@@ -3,10 +3,11 @@ package learn.foraging.data;
 import learn.foraging.models.Forage;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
-
+@Repository
 public class ForageJdbcClientRepository implements ForageRepository {
 
     private final JdbcClient jdbcClient;

@@ -4,9 +4,10 @@ import learn.foraging.models.Category;
 import learn.foraging.models.Item;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class ItemJdbcClientRepository implements ItemRepository {
 
     private final JdbcClient jdbcClient;

@@ -5,6 +5,8 @@ import learn.foraging.models.Category;
 import learn.foraging.models.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.simple.JdbcClient;
 
 import java.math.BigDecimal;
@@ -12,12 +14,16 @@ import java.util.List;
 
 import static learn.foraging.TestData.*;
 import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class ItemJdbcClientRepositoryTest {
+    @Autowired
+    JdbcClient jdbcClient;
+    @Autowired
+    ItemJdbcClientRepository repository;
 
     static final int NEXT_ID = 5;
-    JdbcClient jdbcClient = DataHelper.getJdbcClient();
-    ItemJdbcClientRepository repository = new ItemJdbcClientRepository(jdbcClient);
+//    JdbcClient jdbcClient = DataHelper.getJdbcClient();
+//    ItemJdbcClientRepository repository = new ItemJdbcClientRepository(jdbcClient);
 
     @BeforeEach
     void setup() {

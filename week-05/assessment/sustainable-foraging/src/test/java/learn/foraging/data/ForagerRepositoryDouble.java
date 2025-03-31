@@ -25,6 +25,16 @@ public class ForagerRepositoryDouble implements ForagerRepository {
     }
 
     @Override
+    public Forager create(Forager forager) {
+        return forager;
+    }
+
+    @Override
+    public boolean deleteById(int id) {
+        return false;
+    }
+
+    @Override
     public List<Forager> findByLastName(String lastNamePrefix) {
         return foragers;
     }

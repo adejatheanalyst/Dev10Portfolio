@@ -4,6 +4,8 @@ import learn.foraging.DataHelper;
 import learn.foraging.models.Forage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.simple.JdbcClient;
 
@@ -12,12 +14,15 @@ import java.util.List;
 
 import static learn.foraging.TestData.*;
 import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class ForageJdbcClientRepositoryTest {
+    @Autowired
+    JdbcClient jdbcClient;
+    @Autowired
+    ForageJdbcClientRepository repository;
 
     static final int NEXT_ID = 4;
-    JdbcClient jdbcClient = DataHelper.getJdbcClient();
-    ForageJdbcClientRepository repository = new ForageJdbcClientRepository(jdbcClient);
+//    JdbcClient jdbcClient = DataHelper.getJdbcClient();
 
 
     @BeforeEach

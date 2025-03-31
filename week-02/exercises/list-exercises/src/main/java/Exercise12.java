@@ -21,10 +21,6 @@ public class Exercise12 extends Exercise02 {
 //            int newIndex = (i + size - shift) % size;
 //            reordered.set(newIndex, games.get(i));
 //        }
-
-
-        BoardGame reordered2 = games.get(0);
-        BoardGame reordered3 = games.get(1);
                 for(int i = 0; i < games.size() - 2 ; i++){
                     BoardGame temp = games.remove(0);
                     games.add(temp);

@@ -8,6 +8,7 @@ public class Result<T> {
 
     private ArrayList<String> messages = new ArrayList<>();
     private T payload;
+    private ResultType resultType = ResultType.SUCCESS;
 
     public boolean isSuccess() {
         return messages.size() == 0;
@@ -29,21 +30,41 @@ public class Result<T> {
         this.payload = payload;
     }
 
+    public ArrayList<String> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(ArrayList<String> messages) {
+        this.messages = messages;
+    }
+
+    public ResultType getResultType() {
+        return resultType;
+    }
+
+    public void setResultType(ResultType resultType) {
+        this.resultType = resultType;
+    }
+
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Result<?> result = (Result<?>) o;
-
-        if (!Objects.equals(messages, result.messages)) return false;
-        return Objects.equals(payload, result.payload);
+        return Objects.equals(messages, result.messages) && Objects.equals(payload, result.payload) && resultType == result.resultType;
     }
 
     @Override
     public int hashCode() {
-        int result = messages != null ? messages.hashCode() : 0;
-        result = 31 * result + (payload != null ? payload.hashCode() : 0);
-        return result;
+        return Objects.hash(messages, payload, resultType);
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "messages=" + messages +
+                ", payload=" + payload +
+                ", resultType=" + resultType +
+                '}';
     }
 }

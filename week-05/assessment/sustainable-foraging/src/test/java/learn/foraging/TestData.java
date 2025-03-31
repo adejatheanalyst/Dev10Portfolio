@@ -16,6 +16,7 @@ public class TestData {
 
     public static final Forager FORAGER_ONE = new Forager(1, "First 1", "Last 1", "OR");
     public static final Forager FORAGER_TWO = new Forager(2, "First 2", "Last 2", "TX");
+    public static final Forager NEW_FORAGER = new Forager(0, "First 3", "Last 3", "WA");
 
     public static final LocalDate JAN_01_2023 = LocalDate.of(2023, 1, 1);
     public static final BigDecimal ONE_KILO = new BigDecimal("1.00");

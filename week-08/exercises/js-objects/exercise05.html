@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Objects - Exercise 05</title>
+</head>
+<body>
+ <h1>JavaScript Objects - Exercise 05</h1>
+ <script src="exercise05.js"></script>
+<!-- ### Instructions-->
+
+<!-- Write a function that accepts a terrain string and returns a solved path terrain string.-->
+<!-- You'll likely want more than one function.-->
+<script>
+    // take in object = terrain string
+    // return object = solved path terrain string
+    // create new array that removes all spaces and replaces then with "|"
+    //make sure path is not diagonal
+    // path can only be horizontal or vertical
+    // return new array as a string
+
+function GetTerrain(terrain){
+    return terrain;
+}
+console.log(GetTerrain(terrain));
+
+function findStart(terrain){
+    return terrain.indexOf("@"); // 27
+}
+console.log(findStart(terrain));
+
+function findEnd(terrain){
+    return terrain.indexOf("x"); // -1
+}
+    console.log(findEnd(terrain));
+
+function getNext(terrain){
+    let next = terrain[ + 1];
+    if(next === " "){
+        return  + 1;
+    }
+    next = terrain[ - 1];
+    if(next === " "){
+        return  - 1;
+    }
+    next = terrain[ + 10];
+    if(next === " "){
+        return  + 10;
+    }
+    next = terrain[ - 10];
+    if(next === " "){
+        return - 10;
+    }
+    return " ";
+}
+
+function solveTerrain(terrain){
+    let start = findStart(terrain);
+    let end = findEnd(terrain);
+    let next = getNext(terrain);
+    let path = []
+    let pathV = "|";
+    do{
+        if (next === " "){
+            start = start + next;
+            next = getNext(terrain);
+        }
+    }while (next !== end);
+    return path;
+}
+
+function printTerrain(terrain){
+    let solved = solveTerrain(terrain);
+    let solvedTerrain = terrain;
+    for (let i = 0; i < solved.length; i++){
+        solvedTerrain = solvedTerrain.replace(" ", solved[i]);
+    }
+    return solvedTerrain;
+}
+
+// console.log(printTerrain(terrain));
+
+
+
+
+</script>
+</body>
+</html>

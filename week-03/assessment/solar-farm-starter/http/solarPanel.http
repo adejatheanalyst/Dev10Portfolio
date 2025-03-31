@@ -1,0 +1,52 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+### find by key
+
+GET http://localhost:8080/solarpanels/byKey/Hill/1/3 HTTP/1.1
+
+### find by section
+
+GET http://localhost:8080/solarpanels/bySection/Hill HTTP/1.1
+
+### add solar panel
+
+POST http://localhost:8080/solarpanels HTTP/1.1
+content-type: application/json
+
+{
+  "section": "Forest Hills",
+  "row": 2,
+  "column": 5,
+  "yearInstalled": 2024,
+  "material": "POLY_SI",
+  "isTracking": true
+}
+
+### find by key
+
+GET http://localhost:8080/solarpanels/byKey/Forest%20Hills/2/10 HTTP/1.1
+
+### find all
+
+GET http://localhost:8080/solarpanels/all HTTP/1.1
+
+### update solar panel
+
+PUT http://localhost:8080/solarpanels/4 HTTP/1.1
+content-type: application/json
+
+{
+  "id": 4,
+  "section": "Forest Hills",
+  "row": 2,
+  "column": 10,
+  "yearInstalled": 2024,
+  "material": "MONO_SI",
+  "isTracking": true
+}
+
+### delete
+
+DELETE http://localhost:8080/solarpanels/byKey/Forest%20Hills/2/10 HTTP/1.1

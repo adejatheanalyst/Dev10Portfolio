@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click to Read More</title>
+</head>
+<body>
+
+  <h1>Click to Read More</h1>
+
+  <p>
+    <span id="truncate">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab deleniti, suscipit, dolorum quo, libero assumenda 
+    corporis distinctio debitis ad quibusdam explicabo vitae. Dolorem porro et dolore repellat aliquam, dolorum 
+    ullam voluptas vel natus, autem harum dicta expedita asperiores fugit commodi aperiam molestiae veniam eius! 
+    Saepe vel sunt ducimus iure minus quis exercitationem placeat neque illo. Minima harum, adipisci quasi iure 
+    accusantium voluptatem possimus aliquam voluptates doloremque doloribus? Excepturi esse soluta animi facilis 
+    eum, fugiat nisi totam ratione odit eius incidunt ex facere dolorem sapiente porro consequuntur nesciunt magni 
+    dolor laborum quas corporis. Temporibus commodi ratione in cupiditate, quos blanditiis et adipisci, voluptate 
+    aliquam optio explicabo debitis vitae incidunt, quam culpa sapiente earum nesciunt! Ex doloribus quas pariatur 
+    doloremque illo tempora labore est aliquam placeat debitis temporibus alias amet necessitatibus et eveniet 
+    repudiandae quod aperiam dolorum molestiae esse, architecto iste. Minus iste enim officia, odio quam optio vel 
+    consequuntur iusto deleniti non at assumenda deserunt mollitia nobis sit qui, atque maxime. Soluta nesciunt 
+    adipisci deserunt nulla doloremque laudantium officiis dicta atque aliquam numquam nostrum sunt, et quo 
+    perspiciatis tempore dolorum cumque, minus natus id, similique repellat. Veritatis molestiae rem sunt quisquam, 
+    ad odio minima et iusto officiis! Recusandae error, inventore soluta natus aperiam vitae explicabo sequi magnam 
+    dolore perferendis illum, ducimus nesciunt hic quis architecto pariatur accusantium labore! Accusantium quaerat 
+    praesentium, quo blanditiis eveniet delectus possimus doloremque, cupiditate voluptatum officia, eligendi velit. 
+    Inventore tempore, sequi mollitia repudiandae aut dolores consequatur recusandae sed dignissimos facere est 
+    reprehenderit ea nostrum incidunt voluptates ad sint natus quam ullam consectetur. Exercitationem, quis fuga 
+    placeat ipsum rem deleniti nulla velit animi nesciunt magnam, sequi corrupti praesentium consequuntur alias, 
+    reprehenderit eius dolore eos? Libero asperiores molestias debitis tempora incidunt quia officiis distinctio 
+    corrupti, maiores, necessitatibus laborum, at ducimus commodi adipisci impedit illum. Vel fuga dignissimos nulla 
+    quaerat in deleniti sed amet, optio veritatis impedit. Ea cum laborum rem omnis harum sed tempore, vel quaerat 
+    inventore esse? Beatae dolore provident suscipit ducimus soluta minus quasi doloremque unde quam ea, at, quia 
+    debitis praesentium repellat. Delectus, libero iure aut odio architecto debitis quasi ad nam consequatur 
+    voluptate ducimus quae eligendi, incidunt cum sit ipsa a vel nemo praesentium maxime soluta. Placeat non 
+    adipisci, ratione blanditiis quaerat enim veniam possimus facere consectetur dolor asperiores, excepturi 
+    laudantium nesciunt accusamus iste vitae! Dolores voluptas consequuntur in maiores ipsa autem. Consequatur omnis 
+    delectus commodi nisi veniam provident, ullam qui, hic facere dignissimos saepe!
+    </span>
+    <button id = "read-more">Click to read more.</button>
+  </p>
+
+<!--  <button id = "read-less" onclick="handleClick()">Click to read more.</button>-->
+<!--  <button onclick="handleClick()">Read less.</button>-->
+
+  <script>
+const fullText = document.getElementById("truncate").innerText
+
+console.log(fullText);
+    // TODO Write your code here.
+const truncatedText = fullText.slice(0,100) + "....."
+document.getElementById("truncate").innerText = truncatedText
+let truncated = true;
+
+document.getElementById("read-more").addEventListener("click", function(){
+    if(truncated) {
+      document.getElementById("truncate").innerText = fullText
+      document.getElementById("read-more").innerText = "Read less"
+    }else {
+      truncated = false;
+      document.getElementById("truncate").innerText = truncatedText
+      document.getElementById("read-more").innerText = "Read More"
+    }
+    truncated = !truncated
+});
+
+  </script>
+
+</body>
+</html>

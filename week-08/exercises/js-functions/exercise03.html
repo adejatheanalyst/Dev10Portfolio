@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Functions - Exercise 03</title>
+</head>
+<body>
+
+  <h1>JavaScript Functions - Exercise 03</h1>
+
+  <p><em>Use the DevTools console to confirm the behavior of your code.</em></p>
+
+  <script>
+
+    /**
+     * FUNCTION ACCEPTS A FUNCTION
+     * 
+     * Create a function named `runFunction` that accepts a function
+     * as a parameter.
+     * 
+     * Inside the function, execute the parameter function.
+     * 
+     * In the console, you should see:
+     * 
+     * one
+     * snow 0 [ 'snow', 'sun', 'ice fishing' ]
+     * sun 1 [ 'snow', 'sun', 'ice fishing' ]
+     * ice fishing 2 [ 'snow', 'sun', 'ice fishing' ]
+     * firecracker
+     * aeiouaeiouaeiouaeiouaeiou
+     */
+
+    // Your code here...
+    const runFunction = () =>{
+    }
+
+    function f1() {
+        console.log("one");
+    }
+
+    const f2 = function () {
+        ["snow", "sun", "ice fishing"].forEach(console.log);
+    };
+
+    runFunction(f1);
+    runFunction(f2);
+    runFunction(() => console.log("firecracker"));
+    runFunction(function () {
+        console.log("aeiou".repeat(5));
+    });
+
+  </script>
+
+</body>
+</html>

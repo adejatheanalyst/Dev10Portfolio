@@ -1,0 +1,157 @@
+@url=http://localhost:8080/api/solarpanel
+
+
+GET {{url}}
+
+###
+
+GET {{url}}/myPanels
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3QgdXNlcm5hbWUgMSIsInVzZXJJZCI6NH0.Gx7WiYYLU6B-26CfUl0uW8NiXRqPvwT5VXBnFw0meXQ
+
+###
+
+GET {{url}}/myPanels
+
+
+###
+
+GET {{url}}/myPanels
+Authorization: 999
+
+### 
+
+# Happy Path
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3QgdXNlcm5hbWUgMSIsInVzZXJJZCI6NH0.Gx7WiYYLU6B-26CfUl0uW8NiXRqPvwT5VXBnFw0meXQ
+
+{
+  "section": "Hill",
+  "row": 2,
+  "column": 11,
+  "yearInstalled": 1995,
+  "material": "POLY_SI",
+  "tracking": false
+}
+
+### 
+
+# No Authorization Header
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "section": "Hill",
+  "row": 2,
+  "column": 11,
+  "yearInstalled": 1995,
+  "material": "POLY_SI",
+  "tracking": false
+}
+
+### 
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+Authorization: 999
+
+{
+  "section": "Hill",
+  "row": 2,
+  "column": 11,
+  "yearInstalled": 1995,
+  "material": "POLY_SI",
+  "tracking": false
+}
+
+PUT {{url}}/2 HTTP/1.1
+Content-Type: application/json
+Authorization: 2
+
+ {
+    "id": 2,
+    "section": "The Ridge",
+    "row": 155,
+    "column": 155,
+ }
+
+### 
+
+
+# No authorization header -> 401
+PUT {{url}}/2 HTTP/1.1
+Content-Type: application/json
+
+ {
+    "id": 2,
+    "section": "The Ridge",
+    "row": 155,
+    "column": 155,
+    "yearInstalled": 1995,
+    "material": "POLY_SI",
+    "tracking": false
+  }
+
+### 
+
+# Not this panel's owner -> 403
+PUT {{url}}/2 HTTP/1.1
+Content-Type: application/json
+Authorization: 1
+
+ {
+    "id": 2,
+    "section": "The Ridge",
+    "row": 155,
+    "column": 155,
+    "yearInstalled": 1995,
+    "material": "POLY_SI",
+    "tracking": false
+  }
+
+###
+
+
+# Panel not found -> 404
+PUT {{url}}/99 HTTP/1.1
+Content-Type: application/json
+Authorization: 1
+
+ {
+    "id": 99,
+    "section": "The Ridge",
+    "row": 155,
+    "column": 155,
+    "yearInstalled": 1995,
+    "material": "POLY_SI",
+    "tracking": false
+  }
+
+###
+
+// Update Unhappy Path - Missing Fields
+
+PUT {{url}}/1 HTTP/1.1
+	@@ -61,8 +147,22 @@ Content-Type: application/json
+
+###
+
+# Happy Path
+DELETE {{url}}/2 HTTP/1.1
+Authorization: 2
+
+###
+
+# No authorization header - > 401
+DELETE {{url}}/2 HTTP/1.1
+
+###
+
+
+# Not the owner of the panel - > 403
+DELETE {{url}}/1 HTTP/1.1
+Authorization: 2
+
+###
+
+DELETE {{url}}?section=Hill&row=249&column=155 HTTP/1.1

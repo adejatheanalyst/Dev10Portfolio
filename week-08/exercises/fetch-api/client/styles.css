@@ -1,0 +1,13 @@
+h1 {
+    padding-bottom: 1.1rem;
+    border-bottom: 2px solid #6d8db191;
+}
+
+#capsules {
+    height: 75vh;
+    overflow-y: auto;
+}
+
+#messages {
+    min-height: 50px;
+}

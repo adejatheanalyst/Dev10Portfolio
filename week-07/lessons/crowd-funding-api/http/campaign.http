@@ -1,0 +1,38 @@
+@url = http://localhost:8080/api/campaign
+
+GET {{url}}/active HTTP/1.1
+
+###
+
+GET {{url}}?start=2000-01-01&end=2025-01-01 HTTP/1.1
+
+###
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Vampire: The Masquerade - Milan Uprising",
+    "description": "A cooperative boardgame experience for 1-4 players set in the World of Darkness, only available on the Teburu System",
+    "startDate": "2023-09-01",
+    "endDate": "2023-12-31",
+    "fundingGoal": 100000.00
+}
+
+###
+
+PUT {{url}}/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "campaignId": 3,
+    "name": "Vampire: The Masquerade - Milan UprisingX",
+    "description": "A cooperative boardgame experience for 1-4 players set in the World of Darkness, only available on the Teburu System",
+    "startDate": "2023-09-01",
+    "endDate": "2023-12-31",
+    "fundingGoal": 100000.75
+}
+
+###
+
+DELETE {{url}}/3 HTTP/1.1

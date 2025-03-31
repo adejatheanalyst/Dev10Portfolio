@@ -1,0 +1,31 @@
+package org.example;
+
+import org.example.data.InstrumentFileRepository;
+import org.example.data.InstrumentJdbcClientRepository;
+import org.example.data.InstrumentRepository;
+import org.example.domain.InstrumentService;
+import org.example.ui.ConsoleIO;
+import org.example.ui.Controller;
+import org.example.ui.TextIO;
+import org.example.ui.View;
+import org.springframework.jdbc.core.simple.JdbcClient;
+
+public class Main {
+    public static void main(String[] args) {
+        TextIO io = new ConsoleIO();
+        View view = new View(io);
+// needed to connect to database
+        JdbcClient jdbcClient = DataHelper.getJdbcClient();
+        InstrumentJdbcClientRepository repository = new InstrumentJdbcClientRepository(jdbcClient);
+
+        // needed to connect to file
+//InstrumentFileRepository fileRepository = new InstrumentFileRepository('file.path');
+
+
+        InstrumentService service = new InstrumentService(repository);
+
+        Controller controller = new Controller(view, service);
+
+        controller.run();
+    }
+}

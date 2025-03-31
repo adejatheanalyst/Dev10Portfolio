@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Arrays - Exercise 02</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Arrays - Exercise 02</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * MERGE AND REMOVE DUPLICATES
+     * 
+     * Create a function named `mergeAndRemoveDuplicates` that accepts two arrays.
+     * 
+     * Create a new array that contains elements from both arrays with duplicates
+     * removed. Duplicates should be removed if they occur in a single parameter
+     * array or if there's a duplicated element in each parameter.
+     * 
+     * Return the result.
+     */
+
+    // Your code here...
+    function mergeAndRemoveDuplicates(arr1, arr2){
+      // mergedArray = arr1.concat(arr2);
+      mergedArray = [...arr1, ...arr2]
+      newArray = [];
+
+      mergedArray.forEach(element => {
+        if (!newArray.includes(element)) {
+          newArray.push(element);
+        }
+      });
+        return newArray;
+    }
+    // 0(n)
+
+  </script>
+
+  <script src="./tests/exercise02-test.js"></script>
+
+</body>
+</html>

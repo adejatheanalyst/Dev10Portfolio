@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Agent</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.1/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- navigation is always visible other than the "Add Agent" button -->
+<div >
+    <ul class="nav-bar">
+        <li>
+            <a id="linkAgents" href="#">Agents</a>
+
+        </li>
+        <li>
+            <a id="linkAgencies" href="#">Agencies</a>
+        </li>
+        <li>
+            <a id="home" href="#" type="hidden">Home</a>
+        </li>
+    </ul>
+</div>
+<!-- we start on the "landing" view -->
+<div class="landing">
+    <div class="view"></div>
+    <h1>Field Agent Web</h1>
+</div>
+<!-- the "list" view shows all agents -->
+
+
+<div class="list">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Height</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+        <button id="btnAdd" class="add-button">Add Agent</button>
+    <div>
+        No agents found.<br>
+        Do you want to add an agent?
+    </div>
+
+</div>
+<!-- the "form" view displays an HTML form to either add or update an agent -->
+<div class="form">
+    <h1 class="form-header">Add an Agent</h1>
+    <div id="validationSummary">
+    </div>
+    <form>
+        <div>
+            <div>
+                <label for="firstName">First Name</label>
+                <input id="firstName" name="firstName" type="text" required>
+            </div>
+            <div>
+                <label for="middleName">Middle Name</label>
+                <input id="middleName" name="middleName" type="text">
+            </div>
+        </div>
+        <div>
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" required>
+        </div>
+        <div>
+            <div>
+                <label for="dob">DOB</label>
+                <input id="dob" name="dob" type="date" required>
+            </div>
+            <div>
+                <label for="heightInInches">Height (inches)</label>
+                <input id="heightInInches" name="heightInInches" type="number" required
+                       min="36" max="96">
+            </div>
+        </div>
+        <div class="save-cancel">
+            <button type="submit">Save</button>
+            <button type="button">Cancel</button>
+            <input id="agentId" name="agentId" type="hidden">
+        </div>
+    </form>
+</div>
+<!-- the "delete" view displays an agent delete confirmation message -->
+<div class="delete">
+    <h1>Delete Agent</h1>
+    <p>Are you sure you want to delete this agent?</p>
+    <ul></ul>
+    <button id="btnDelete" type=submit>Delete</button>
+    <button id="btnCancel">Cancel</button>
+    <input id="deleteAgentId" name="deleteAgentId" type="hidden">
+</div>
+<script src="./js/index.js"></script>
+</body>
+
+</html>

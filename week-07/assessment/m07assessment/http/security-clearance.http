@@ -1,0 +1,121 @@
+# Happy path
+GET http://localhost:8080/api/security_clearance/1 HTTP/1.1
+
+###
+# Does not exist
+GET http://localhost:8080/api/security_clearance/999 HTTP/1.1
+
+###
+# Only outcome
+GET http://localhost:8080/api/security_clearance HTTP/1.1
+
+
+###
+# Happy path
+POST http://localhost:8080/api/security_clearance HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "For British Eyes Only"
+}
+
+
+###
+# Name cannot be blank
+POST http://localhost:8080/api/security_clearance HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": ""
+}
+
+###
+# Name cannot be duplicate
+POST http://localhost:8080/api/security_clearance HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "For British Eyes Only"
+}
+
+###
+# Happy Path
+PUT http://localhost:8080/api/security_clearance/1
+Content-Type: application/json
+
+{
+    "securityClearanceId": 1,
+    "name": "Super Secret"
+}
+
+
+# {
+#     "security_clearance_id": 1,
+#     "name": "Super Secret"
+# }
+
+# sc = new SecurityClearance()
+# sc.setSecurity_clearance_id
+
+
+###
+# ID conflict
+PUT http://localhost:8080/api/security_clearance/1
+Content-Type: application/json
+
+{
+    "securityClearanceId": 2,
+    "name": "Super Secret"
+}
+
+###
+# Name cannot be blank
+PUT http://localhost:8080/api/security_clearance/1
+Content-Type: application/json
+
+{
+    "securityClearanceId": 1,
+    "name": ""
+}
+
+###
+# Name cannot be duplicate
+PUT http://localhost:8080/api/security_clearance/1
+Content-Type: application/json
+
+{
+    "securityClearanceId": 1,
+    "name": "Top Secret"
+}
+
+###
+# Does not exist
+PUT http://localhost:8080/api/security_clearance/999
+Content-Type: application/json
+
+{
+    "securityClearanceId": 999,
+    "name": "Doesn't Even Exist Secret"
+}
+
+###
+# Does not exist
+PUT http://localhost:8080/api/security_clearance/999
+Content-Type: application/json
+
+{
+    "securityClearanceId": 999,
+    "name": "Doesn't Even Exist Secret"
+}
+
+###
+# Happy path
+DELETE http://localhost:8080/api/security_clearance/2
+
+###
+# In use
+DELETE http://localhost:8080/api/security_clearance/1
+
+###
+# Does not exist
+DELETE http://localhost:8080/api/security_clearance/999

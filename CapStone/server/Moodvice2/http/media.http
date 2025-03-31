@@ -1,0 +1,24 @@
+@url=http://localhost:8080/api/media
+
+###
+# GET /api/media happy path
+###
+GET {{url}}/mood/2
+###
+# GET /api/media not found path
+###
+GET {{url}}/mood/5
+
+###
+# GET /api/media/mediaId happy path
+###
+GET {{url}}/1
+###
+# GET /api/media/mediaId not found path
+###
+GET {{url}}/5
+
+###
+# GET /api/media/mediaId not found path
+###
+GET {{url}}/2

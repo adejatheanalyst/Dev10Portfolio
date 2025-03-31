@@ -1,0 +1,60 @@
+@url=http://localhost:8080/api/userMood
+
+###
+# Post /api/userMood happy path
+###
+POST {{url}}
+Content-Type: application/json
+Authorization: 1
+
+{
+  "moodId": "5"
+  }
+
+
+###
+# Post /api/userMood nonexistent user path
+###
+POST {{url}}
+Content-Type: application/json
+Authorization: 5
+
+{
+  "moodId": "2",
+  "mood_notes": "testnotes2"
+  }
+
+  ###
+# Post /api/userMood null moodId user path
+###
+POST {{url}}
+Content-Type: application/json
+Authorization: 1
+
+{
+  "moodId": " ",
+  "mood_notes": "testnotes2"
+  }
+
+  ###
+# GET /api/userMood null mood_notes user path
+###
+GET {{url}}/myMoods/3
+Content-Type: application/json
+Authorization: 1
+
+###
+# Get /api/userMood by date
+###
+GET {{url}}/myMoods/2025-03-10
+Content-Type: application/json
+Authorization: 1
+
+
+###
+
+GET {{url}}
+
+
+
+

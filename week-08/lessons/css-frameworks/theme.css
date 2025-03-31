@@ -1,0 +1,13 @@
+html {
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  letter-spacing: 0.1rem;
+  color: #0000aa;
+  border-bottom: 1px solid #0000aa;
+}
+
+ul > li {
+  list-style-type: "\1F47D";
+}

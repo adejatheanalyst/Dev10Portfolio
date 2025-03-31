@@ -1,0 +1,42 @@
+@pledgeUrl = http://localhost:8080/api/pledge
+
+GET http://localhost:8080/api/campaign/1/pledges HTTP/1.1
+
+###
+
+GET http://localhost:8080/api/backer/2/pledges HTTP/1.1
+
+###
+
+POST {{pledgeUrl}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "amount": 55.00,
+    "campaign": {
+        "campaignId": 1     
+    },
+    "backer": {
+        "backerId": 2
+    }
+}
+
+###
+
+PUT {{pledgeUrl}}/12 HTTP/1.1
+Content-Type: application/json
+
+{
+    "pledgeId": 12,
+    "amount": 57.74,
+    "campaign": {
+        "campaignId": 2      
+    },
+    "backer": {
+        "backerId": 2
+    }
+}
+
+###
+
+DELETE  {{pledgeUrl}}/12 HTTP/1.1

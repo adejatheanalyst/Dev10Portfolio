@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Counter</title>
+</head>
+<body>
+
+<h1>Button Counter</h1>
+
+<h2 id="countHeading">0</h2>
+
+<div>
+  <button
+          onclick="handleSubtraction()"
+          style="width: 25px; height: 25px;">-</button>
+  <button
+          onclick="handleAddition()"
+          style="width: 25px; height: 25px;">+</button>
+</div>
+
+<script>
+  let count = 0
+  const countingHeadElement = document.getElementById('countHeading');
+
+  // TODO: Add JavaScript here...
+  function handleSubtraction(){
+    count --
+    // console.log("One Subtracted ", count)
+    countingHeadElement.innerText = count
+
+  }
+  function handleAddition(){
+    count++
+    // console.log("One Added", count)
+    countingHeadElement.innerText = count
+  }
+
+
+</script>
+
+</body>
+</html>

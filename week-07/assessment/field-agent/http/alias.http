@@ -1,0 +1,178 @@
+@url = http://localhost:8080/api/alias
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+#Get all alias
+GET http://localhost:8080/api/alias HTTP/1.1
+
+###
+#Post an alias(add)
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+"aliasId": 0,
+"name": "Test",
+"persona": "test-persona",
+"agent": {
+  "agentId": 1
+}
+}
+###
+#POST fail/ cant set id
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "aliasId": 3,
+  "name": "Test",
+  "persona": "test-persona",
+  "agent": {
+    "agentId": 1
+  }
+}
+###
+#POST fail null name no agent ID
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "aliasId": 0,
+  "name": "",
+  "persona": "test-persona",
+  "agent": {
+    "agentId": 0
+  }
+}
+###
+
+###
+#POST  fail id name is dup and no persona
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "aliasId": 0,
+  "name": "Test",
+  "persona": "",
+  "agent": {
+    "agentId": 1
+  }
+ }
+
+
+###
+#POST pass is name is new and persona is null
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "aliasId": 0,
+  "name": "Test3",
+  "persona": "",
+  "agent": {
+    "agentId": 1
+  }
+}
+
+###
+#Get api/agent existing id - include aliases
+GET http://localhost:8080/api/agent/1
+
+###
+#Get all alias
+
+GET http://localhost:8080/api/alias HTTP/1.1
+
+###
+#Put/Update tests
+#Pass
+
+PUT http://localhost:8080/api/alias/2 HTTP/1.1
+Content-Type: application/json
+
+{
+"aliasId": 2,
+"name": "Test 2",
+"persona": "Test Persona 2",
+  "agent": {
+    "agentId": 1
+  }
+}
+
+
+###
+#gET UPDATE
+GET http://localhost:8080/api/agent/1
+
+###
+#Put/FAIL Name is required" and "agentId is required".
+
+PUT http://localhost:8080/api/alias/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "aliasId": 1,
+  "name": "",
+  "persona": "Test Persona 2",
+  "agent": {
+    "agentId": 0
+  }
+}
+
+
+###
+#Put/FAIL "Persona is required if name is duplicate"
+
+PUT http://localhost:8080/api/alias/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "aliasId": 1,
+  "name": "Test 2",
+  "persona": "",
+  "agent": {
+    "agentId": 1
+  }
+}
+###
+#Put/FAIL  Response is 409.
+
+PUT http://localhost:8080/api/alias/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "aliasId": 999,
+  "name": "Test 3",
+  "persona": "Test Persona 2",
+  "agent": {
+    "agentId": 1
+  }
+}
+###
+#Put/FAIL  Response is 404.
+
+
+PUT http://localhost:8080/api/alias/999 HTTP/1.1
+Content-Type: application/json
+
+{
+  "aliasId": 999,
+  "name": "Test 2",
+  "persona": "Test Persona 2",
+  "agent": {
+    "agentId": 1
+  }
+}
+
+###
+#DELETE TESTS
+#Pass
+DELETE http://localhost:8080/api/alias/2
+
+###
+#Response 404
+
+DELETE http://localhost:8080/api/alias/999

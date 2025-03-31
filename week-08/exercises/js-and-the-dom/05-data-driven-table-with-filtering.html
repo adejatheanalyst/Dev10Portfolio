@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data-Driven Table with Filtering</title>
+</head>
+<body>
+
+  <h1>Data-Driven Table with Filtering</h1>
+
+  <div>
+    <label for="filter">Filter:</label>
+    <input type="text" id="filter">
+  </div>
+
+  <table id="table"></table>
+
+  <div id="message"></div>
+
+  <script>
+
+    const data = [
+      {
+        id: 1,
+        name: "Luke Skywalker",
+        height: 172,
+        mass: 77,
+        hairColor: "blond",
+        skinColor: "fair",
+        eyeColor: "blue",
+        birthYear: "19BBY"
+      },
+      {
+        id: 2,
+        name: "C-3PO",
+        height: 167,
+        mass: 75,
+        hairColor: "n/a",
+        skinColor: "gold",
+        eyeColor: "yellow",
+        birthYear: "112BBY"
+      },
+      {
+        id: 3,
+        name: "R2-D2",
+        height: 96,
+        mass: 32,
+        hairColor: "n/a",
+        skinColor: "white, blue",
+        eyeColor: "red",
+        birthYear: "33BBY"
+      },
+      {
+        id: 4,
+        name: "Darth Vader",
+        height: 202,
+        mass: 136,
+        hairColor: "none",
+        skinColor: "white",
+        eyeColor: "yellow",
+        birthYear: "41.9BBY"
+      },
+      {
+        id: 5,
+        name: "Leia Organa",
+        height: 150,
+        mass: 49,
+        hairColor: "brown",
+        skinColor: "light",
+        eyeColor: "brown",
+        birthYear: "19BBY"
+      },
+      {
+        id: 10,
+        name: "Obi-Wan Kenobi",
+        height: 182,
+        mass: 77,
+        hairColor: "auburn, white",
+        skinColor: "fair",
+        eyeColor: "blue-gray",
+        birthYear: "57BBY"
+      },
+      {
+        id: 13,
+        name: "Chewbacca",
+        height: 228,
+        mass: 112,
+        hairColor: "brown",
+        skinColor: "unknown",
+        eyeColor: "blue",
+        birthYear: "200BBY"
+      },
+      {
+        id: 14,
+        name: "Han Solo",
+        height: 180,
+        mass: 80,
+        hairColor: "brown",
+        skinColor: "fair",
+        eyeColor: "brown",
+        birthYear: "29BBY"
+      }
+    ];
+
+    const columns = [
+      { header: 'Name', dataPropertyName: 'name' },
+      { header: 'Height', dataPropertyName: 'height' },
+      { header: 'Mass', dataPropertyName: 'mass' },
+      { header: 'Hair Color', dataPropertyName: 'hairColor' },
+      { header: 'Skin Color', dataPropertyName: 'skinColor' },
+      { header: 'Eye Color', dataPropertyName: 'eyeColor' },
+      { header: 'Birth Year', dataPropertyName: 'birthYear' }
+    ];
+
+    // TODO Write your code here.
+    const table = document.getElementById('table');
+    const filter = document.getElementById('filter');
+    const message = document.getElementById('message');
+
+
+    const populateTable = (characters) => {
+      let tableHtml = ""
+      // create the thead
+      tableHtml += "<thead><tr>"
+      for (const column of columns) {
+        tableHtml += `<th>${column.header}</th>`
+      }
+      tableHtml += "</tr></thead>"
+
+      tableHtml += "<tbody>"
+      for (const character of characters) {
+        tableHtml += "<tr>"
+        for (const column of columns) {
+          tableHtml += `<td>${character[column.dataPropertyName]}</td>`
+        }
+        tableHtml += "</tr>"
+      }
+      tableHtml += "</tbody>"
+
+      table.innerHTML = tableHtml;
+
+      const totalResults = data.length
+      const currentResults = characters.length
+     message.innerText = `Showing ${currentResults} out of ${totalResults} results`
+    }
+
+    document.getElementById("filter").addEventListener("keyup", () => {
+      const filterText = filter.value;
+      const filteredData = []
+      for (const character of data) {
+        let hasBeenAdded = false
+        for (const column of columns) {
+          const searchString = character[column.dataPropertyName].toString()
+          if (searchString.includes(filterText) && !hasBeenAdded) {
+            filteredData.push(character)
+            hasBeenAdded = true
+          }
+        }
+      }
+      populateTable(filteredData)
+    })
+
+
+    populateTable(data)
+
+
+
+    // function populateTable(){
+    //   const rows = data.map(character => {
+    //     const cells = columns.map(column => {
+    //       return `
+    //             <td>${character[column.dataPropertyName]}</td>
+    //             `;
+    //     });
+    //     return `
+    //         <tr>${cells.join('')}</tr>
+    //         `;
+    //   });
+    //   const headers = columns.map(column => {
+    //     return `
+    //       <th>${column.header}</th>
+    //       `;
+    //   });
+    //   tableElement.innerHTML = headers.join('') + rows.join('');
+    //
+    //   console.log(rows);
+    // }
+    // populateTable();
+    // filter.addEventListener("keyup",() =>{
+    //   // let message = tableElement.innerText
+    //     const filterData = data.filter(char => {
+    //         return char.name.toLowerCase().includes(filter.value.toLowerCase());
+    //     });
+    //     const rows = filterData.map(character => {
+    //         const cells = columns.map(column => {
+    //             return `
+    //             <td>${character[column.dataPropertyName]}</td>
+    //             `;
+    //         });
+    //         return `
+    //         <tr>${cells.join('')}</tr>
+    //         `;
+    //     });
+    //     const headers = columns.map(column => {
+    //         return `
+    //         <th>${column.header}</th>
+    //         `;
+    //     })
+    //     table.innerHTML = headers.join('') + rows.join('');
+    //     let count = filterData.length
+    //     message.innerText = `Showing ${count} entries`
+    // })
+// function showEntryCount(){
+//
+// }
+// showEntryCount()
+
+
+
+
+
+
+
+    // const filteredData = data.filter(character => {
+    //   return character.name.toLowerCase().includes(filter.value.toLowerCase());
+    // });
+    // if(filteredData.length === 0){
+    //   message.innerText = 'No results found';
+    // } else {
+    //   message.innerText = '';
+    // }
+    // const rows = data.map(character => {
+    //   return
+
+    // function populateTable(){
+    //   const rows = data.map(character => {
+    //     return `
+    //     <tr>
+    //           <td>${character.name}</td>
+    //           <td>${character.height}</td>
+    //           <td>${character.mass}</td>
+    //           <td>${character.hairColor}</td>
+    //           <td>${character.skinColor}</td>
+    //           <td>${character.eyeColor}</td>
+    //           <td>${character.birthYear}</td>
+    //     </tr>
+    //     `;
+    //   });
+    //   const headers = columns.map(column => {
+    //     return `
+    //       <th>${column.header}</th>
+    //       `;
+    //   });
+    //   table.innerHTML = headers.join('') + rows.join('');
+    //
+    //   console.log(rows);
+    // }
+    // populateTable();
+
+
+
+  </script>
+
+</body>
+</html>

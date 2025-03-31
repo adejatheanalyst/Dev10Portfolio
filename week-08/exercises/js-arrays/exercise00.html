@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Arrays - Exercise 00</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Arrays - Exercise 00</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * PAD LEFT STRING ARRAY
+     * 
+     * Create a function named `padLeftStringArray` that accepts an array of strings.
+     * Create a new array with the same elements, padding the left side of each string so that they're right-aligned.
+     * 
+     * Example 1:
+     * 
+     * Argument:
+     * [
+     *   "one",
+     *   "two hundred",
+     *   "fifty"
+     *  ]
+     * 
+     * Result:
+     * [
+     *   "        one",
+     *   "two hundred",
+     *   "      fifty"
+     *  ]
+     * 
+     * Example 2:
+     * 
+     * Argument:
+     * [
+     *   "yes",
+     *   "no"
+     * ]
+     * 
+     * Result:
+     * [
+     *   "yes",
+     *   " no"
+     * ]
+     * 
+     * Example 3:
+     * 
+     * Argument:
+     * [
+     *   "merciful",
+     *   "cold",
+     *   "beyond reproach",
+     *   "brighter",
+     *   "sad"
+     * ]
+     * 
+     * Result:
+     * [
+     *   "       merciful",
+     *   "           cold",
+     *   "beyond reproach",
+     *   "       brighter",
+     *   "            sad"
+     * ]
+     */
+
+    // Your code here...
+    function padLeftStringArray(elements) {
+      // let newArray = [];
+      const arrayofLengths = elements.map(string => string.length)
+      const maxLength = Math.max(...elements)//spread operator
+      return elements.map(string => string.padStart(maxLength))
+
+    //  for (element of elements){
+    //    newArray.map()
+    //    newArray.push(elements)
+    //  }return newArray
+    }
+
+  </script>
+
+  <script src="./tests/exercise00-test.js"></script>
+
+</body>
+</html>

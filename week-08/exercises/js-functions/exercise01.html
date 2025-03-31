@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Functions - Exercise 01</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Functions - Exercise 01</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * ARE IN ORDER
+     * 
+     * Create a function named `areInOrder` that accepts 4 numeric parameters
+     * and returns boolean `true` if the numbers are in order ascending.
+     * Ties are considered ordered.
+     * If the numbers aren't in order, return boolean `false`.
+     * Use a function expression instead of a function declaration.
+     */
+
+    // Your code here...
+    console.log(typeof function(){});
+
+    const areInOrder = function(value1, value2, value3, value4) {
+      if (value1 <= value2 && value2 <= value3 && value3 <= value4) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    areInOrder(1,2,3,4);
+
+  </script>
+
+  <script src="./tests/exercise01-test.js"></script>
+
+</body>
+</html>

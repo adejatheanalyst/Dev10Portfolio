@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Functions - Exercise 02</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Functions - Exercise 02</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * FUNCTION RETURNS A FUNCTION
+     * 
+     * Create a function named `makeFunction` that returns a function.
+     * Use an arrow function for the return value.
+     */
+
+     // Your code here...
+    // console.log(typeof function () {});
+
+     const makeFunction = () => {
+      return(name) => {console.log('Hello' + name)}
+     }
+  </script>
+
+  <script src="./tests/exercise02-test.js"></script>
+
+</body>
+</html>

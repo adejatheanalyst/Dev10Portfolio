@@ -1,0 +1,153 @@
+@url=http://localhost:8080/api/user
+
+###
+# Post /api/user happy path
+###
+POST {{url}}
+Content-Type: application/json
+
+{
+  "username": "John Doe",
+  "email": "JohnDoe@gmail.com",
+  "password": "passwordTest"
+  }
+
+###
+# Post /api/user blank username path
+###
+POST {{url}}
+Content-Type: application/json
+
+{
+  "username": "",
+  "email": "JohnDoe@gmail.com",
+  "password": "passwordTest"
+  }
+
+###
+# Post /api/user blank password  path
+###
+POST {{url}}
+Content-Type: application/json
+
+{
+  "username": "John Doe2",
+  "email": "JohnDoe@gmail.com",
+  "password": ""
+  }
+
+###
+# Post /api/user/login happy path
+###
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "username": "John Doe",
+  "email": "JohnDoe@gmail.com",
+  "password": "passwordTest"
+  }
+  
+###
+# Post /api/user/login blank username fail path
+###
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "username": "",
+  "email": "JohnDoe@gmail.com",
+  "password": "passwordTest"
+  }
+
+  ###
+# Post /api/user/login blank password fail path
+###
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "username": "John Doe",
+  "email": "JohnDoe@gmail.com",
+  "password": ""
+  }
+
+  ###
+# PUT /api/user/{userId} update happy path 
+###
+PUT {{url}}/2
+Content-Type: application/json
+Authorization: 2
+
+{
+  "username": "John Doe",
+  "email": "JohnDoe3@gmail.com",
+  "password": "newpassword"
+  }
+
+###
+# PUT /api/user/{userId} update blank username path 
+###
+PUT {{url}}/2
+Content-Type: application/json
+Authorization: 2
+
+{
+  "username": "",
+  "email": "JohnDoe3@gmail.com",
+  "password": "newpassword"
+  }
+
+###
+# PUT /api/user/{userId} update blank password path 
+###
+PUT {{url}}/2
+Content-Type: application/json
+Authorization: 2
+
+{
+  "username": "John Doe",
+  "email": "JohnDoe34@gmail.com",
+  "password": ""
+  }
+
+###
+# PUT /api/user/{userId} update unauthorized path 
+###
+PUT {{url}}/2
+Content-Type: application/json
+Authorization: 1
+
+{
+  "username": "John Doe",
+  "email": "JohnDoe34@gmail.com",
+  "password": "newpassword"
+  }
+
+###
+# PUT /api/user/{userId} update not found path 
+###
+PUT {{url}}/999
+Content-Type: application/json
+Authorization: 999
+
+{
+  "username": "John Doe",
+  "email": "JohnDoe34@gmail.com",
+  "password": "newpassword"
+  }
+
+###
+# DELETE /api/user/delete/{userId} delete happy path
+###
+DELETE {{url}}/delete/1
+Content-Type: application/json
+Authorization:1
+
+###
+# DELETE /api/user/delete/{userId} delete not authorized path
+###
+DELETE {{url}}/delete/1
+Content-Type: application/json
+Authorization: 2
+

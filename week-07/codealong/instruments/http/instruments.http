@@ -1,0 +1,126 @@
+GET http://localhost:8080/instruments HTTP/1.1
+
+###
+
+GET http://localhost:8080/instruments/byType/TUBA HTTP/1.1
+
+###
+
+GET http://localhost:8080/instruments/byType/PIANO HTTP/1.1
+
+###NOTFOUND
+
+GET http://localhost:8080/instruments/byType/TRUMPET HTTP/1.1
+
+###
+
+GET http://localhost:8080/instruments/byType?instrumentType=TUBA HTTP/1.1
+
+###
+
+GET http://localhost:8080/instruments/byType?instrumentType=PIANO HTTP/1.1
+
+###NOTFOUND
+
+GET http://localhost:8080/instruments/byType?instrumentType=CLAIRINET HTTP/1.1
+
+###
+
+POST  http://localhost:8080/instruments HTTP/1.1
+Content-Type: application/json
+
+{
+  "serialNumber": "5443563",
+  "instrumentType": "TRUMPET",
+  "cost": 500,
+  "student": "James",
+  "needsRepair": false
+}
+
+###
+
+POST  http://localhost:8080/instruments HTTP/1.1
+Content-Type: application/json
+
+{
+  "serialNumber": "5443563",
+  "instrumentType": "TRUMPET",
+  "cost": 500,
+  "student": "James",
+  "needsRepair": false
+}
+
+###
+
+POST  http://localhost:8080/instruments HTTP/1.1
+Content-Type: application/json
+
+{
+  "serialNumber": "",
+  "instrumentType": "TRUMPET",
+  "cost": 500,
+  "student": "James",
+  "needsRepair": false
+}
+
+### Intrument type required
+
+POST  http://localhost:8080/instruments HTTP/1.1
+Content-Type: application/json
+
+{
+  "serialNumber": "463566",
+  "instrumentType": "",
+  "cost": 500,
+  "student": "James",
+  "needsRepair": false
+}
+
+### Cost must be positive or 0
+
+POST  http://localhost:8080/instruments HTTP/1.1
+Content-Type: application/json
+
+{
+  "serialNumber": "463566",
+  "instrumentType": "TRUMPET",
+  "cost": -20,
+  "student": "James",
+  "needsRepair": false
+}
+
+### Update pass
+
+PUT http://localhost:8080/instruments/5443563 HTTP/1.1
+Content-Type: application/json
+
+{
+  "serialNumber": "5443563",
+  "instrumentType": "TRUMPET",
+  "cost": 250,
+  "student": "Tiffany",
+  "needsRepair": true
+}
+
+###DELETE PASS
+
+DELETE http://localhost:8080/instruments/5443563 HTTP/1.1
+
+###DELETE FAIL
+
+DELETE http://localhost:8080/instruments/123356 HTTP/1.1
+
+###INVALID INSTRUMENT VALUE
+
+
+PUT http://localhost:8080/instruments/5443563 HTTP/1.1
+Content-Type: application/json
+
+{
+  "serialNumber": "5443563",
+  "instrumentType": "6565665",
+  "cost": 250,
+  "student": "Tiffany",
+  "needsRepair": true
+}
+

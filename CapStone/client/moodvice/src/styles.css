@@ -1,0 +1,562 @@
+@import "tailwindcss";
+/* .body{
+    background-color:rgb(0, 0, 0);
+    height: auto;
+    width: auto;
+} */
+.body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #000000;
+  height: auto;
+    width: auto;
+}
+.h1, h2, h3 {
+  font-weight: 600;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-control{
+  background-color: #070409 !important;
+  color: rgb(230, 227, 241) !important;
+  border: #6d0aee !important;
+}
+.login-text{
+    color: #c2bdcd;
+    font-size: 15px;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+}
+.container{
+  margin-top: 50px;
+    border-radius: 3px;
+    align-items: center;
+}
+.poem-container{
+    margin: auto;
+    padding-top: 100px;
+    border-radius: 3px;
+    align-items: center;
+}
+.enterMood{
+  color: white;
+}
+.description{
+    color: #c2bdcd;
+    font-size:15px;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+}
+
+.nav-item{
+    color: #00aaaa;
+    font-size: 25px;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+}
+.navbar{
+    background-color: #020415 !important;
+    border-color: #4d0099;
+    border-radius: 10px;
+    margin: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    color: #5b56f0 !important;
+    text-align: left;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+}
+.homeContainer{
+    margin: auto;
+    padding-top: 100px;
+    color: #c2bdcd;
+
+    border-radius: 3px;
+    align-items: center;
+}
+.font-monospace{
+    color:aqua
+}
+/* .graphCard:hover, .calender:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+} */
+.card{
+    background-color: #090314 !important;
+    border-color: #3b0a7b !important;
+    border: 5px !important;
+    border-radius: 10px;
+    color: #ffffff !important;
+    text-align: left;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+}
+.replyCard{
+  background-color: #240a4b !important;
+  border-color: #2f0762 !important;
+  box-shadow: #000000 !important;
+  border: 5px !important;
+  border-radius: 10px;
+  color: #ffffff !important;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  float:center;
+  max-width: 330px;
+  padding: 1rem;
+  background-color: black;
+  box-shadow: 0 0 2em #5005e6;
+  transition: filter 300ms;
+  margin-bottom: 20px;
+}
+.form-group-title{
+  max-width: 330px;
+  padding: 1rem;
+  letter-spacing: 2px;
+    background-color: #000000 !important;
+    border-color: #4d0099;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    color: #5b56f0 !important;
+    text-align: center;
+    font-family: 'Impact','Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+  
+}
+.card-body{
+    background-color: #000000;
+}
+.card-title{
+  color:white !important;
+}
+.card-text{
+  color:white;
+}
+
+.calenderStyle{
+    font-size: 50px;
+        color:#4d0099;
+        background-color: #06121f;
+        padding: 2px;
+        border-radius: 5px;
+        text-align: center;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        transform: uppercase;
+
+}
+.calender{
+  background-color: #0f0f0f !important;
+  border-color: #000000;
+  border-radius: 5px;
+    margin: auto;
+    color: #5b56f0 !important;
+    text-align: left;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+}
+.resources{
+    background-color: #070707 !important;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #ffffff !important;
+    text-align: left;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+}
+.link{
+    color: #ffffff !important;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+}
+.graphCard{
+    background-color: #000102 !important;
+    border-color: #0d3272;
+    color: #5b56f0 !important;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+    box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    
+}
+/* .moodChartsContainer{
+    padding-top: 100px;
+    border-radius: 3px;
+    align-items: center;
+    
+} */
+.moodChartsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 50px 20px;
+  margin: auto;
+  border-top: 2px solid #0e153b;
+  border-bottom: 2px solid #0e153b;
+}
+.moodChartTitle{
+  font-size: 50px;
+  letter-spacing: 2px;
+  width: 400px;
+  height: auto;
+  border-color: #00aaaa;
+  border-radius: 10px;
+  margin: auto;
+  color: #5801ae;
+  text-shadow: #000000;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  transform: uppercase;   
+}
+
+.mx-auto{
+    margin: auto;
+    color: #5b4aba;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+    padding-top: 10px;
+}
+.title-moodvice{
+   margin: auto;
+    font-size: 20px;
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    color: #265486;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;   
+}
+.bg-purple {
+  background-color: #1a0f2e;
+}
+.input{
+  background-color: #070409;
+  color: white;
+  
+}
+
+
+button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 15px;
+  transition: transform 0.2s ease;
+}
+.header {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+.errors{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    transform: uppercase;
+}
+.card {
+  background: rgba(34, 1, 101, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+.calender, .graphCard {
+  background: white;
+  border-radius: 12px;
+
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+.calender:hover, .graphCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.moodGraph{
+    border-radius: 3px;
+    align-items: center;
+    padding-right: 10px;
+}
+.title{
+        color: #e8f3f3;
+        text-align: center;
+        animation: animate 1s ease-in-out infinite
+        alternate;
+}
+.dropdown-menu{
+    background-color: #02274d;
+}
+.moodViceContainer {
+  width: 1000px;
+  max-width: 800px;
+  margin: auto;
+  background-color:black;
+}
+
+.add-button {
+  background-color: #7a5cfa;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.moodViceCard {
+  background: #121314;
+  text-align: left;
+  color: rgb(55, 63, 70);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.button-group button {
+  margin-right: 5px;
+}
+
+.confirm-delete {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.popup-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+/* @keyframes animate{
+    from{
+        text-shadow: 0 0 20px #289aab;
+    }to{
+        text-shadow: 0 0 30px #289aab,
+                    0 0 10px #289aab;
+
+    }
+} */
+@keyframes animate{ 
+  from{
+    text-shadow: 0 0 20px #441bbe;
+}to{
+    text-shadow: 0 0 30px #441bbe,
+                0 0 10px #441bbe;
+
+}
+}
+.react-calendar {
+    width: 350px;
+    max-width: 100%;
+    max-height: 100%;
+    background: rgb(5, 4, 9);
+    border: 2px solid #000000;
+    border-radius: 20px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.125em;
+  }
+  
+  .react-calendar--doubleView {
+    width: 700px;
+  }
+  
+  .react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+  }
+  
+  .react-calendar--doubleView .react-calendar__viewContainer > * {
+    width: 50%;
+    margin: 0.5em;
+  }
+  
+  .react-calendar,
+  .react-calendar *,
+  .react-calendar *:before,
+  .react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .react-calendar button {
+    margin: auto;
+    border: 0;
+    border-radius: 3px;
+    outline: none;
+
+  }
+  
+  .react-calendar button:enabled:hover, .react-calendar button:enabled:focus {
+    cursor: pointer;
+    background-color: #340b71;
+  }
+  
+  .react-calendar__navigation {
+    display: flex;
+    padding: 0.5em;
+  }
+  .react-calendar__navigation_label{
+    font-weight: bold;
+  }
+  
+  .react-calendar__navigation button {
+    min-width: 44px;
+    background: none;
+    color: #ffffff;
+  }
+  
+  .react-calendar__navigation button:disabled {
+    background-color: #fdfdfd;
+  }
+  
+  
+  .react-calendar__month-view__weekdays {
+    text-align: center;
+    font-weight: 400; 
+    color: #feffff;
+    border-radius: 2px;
+  }
+  
+  .react-calendar__month-view__weekdays__weekday {
+    padding: 0.5em;
+  }
+   
+  .react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    font-size: 0.75em;
+    font-weight: bold;
+  } 
+  
+  
+  .react-calendar__month-view__days__day--neighboringMonth,
+  .react-calendar__decade-view__years__year--neighboringDecade,
+  .react-calendar__century-view__decades__decade--neighboringCentury {
+    color: #6e6e6e;
+  }
+  
+  .react-calendar__year-view .react-calendar__tile,
+  .react-calendar__decade-view .react-calendar__tile,
+  .react-calendar__century-view .react-calendar__tile {
+    padding: 2em 0.5em;
+  }
+  
+  .react-calendar__tile {
+    padding: 10px 6.6667px;
+    border-radius: 3px;
+    color: #ffffff;
+    background: none;
+    text-align: center;
+    font: inherit;
+    font-size: 0.833em;
+  }
+  
+  .react-calendar__tile:disabled {
+    background-color: #4001a5;
+    color: white;
+  
+  }
+  
+  .react-calendar__month-view__days__day--neighboringMonth:disabled,
+  .react-calendar__decade-view__years__year--neighboringDecade:disabled,
+  .react-calendar__century-view__decades__decade--neighboringCentury:disabled {
+    color: white;
+  }
+  
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    background-color: #e6e6e6;
+    border-radius: 3px;
+  }
+  
+  .react-calendar__tile--now {
+    background: #782fe5;
+    color:white;
+  }
+  
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus {
+    background: #7530ff;
+  }
+  
+  .react-calendar__tile--hasActive {
+    background: #76baff;
+  }
+  
+  .react-calendar__tile--hasActive:enabled:hover,
+  .react-calendar__tile--hasActive:enabled:focus {
+    background: #a9d4ff;
+  }
+  
+  .react-calendar__tile--active {
+    background: #3d0493;
+    color: white;
+  }
+  
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus {
+    background: #220062;
+  }
+  
+  .react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #e6e6e6;
+  }

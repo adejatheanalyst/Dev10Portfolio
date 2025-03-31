@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-App<solar-farm-api>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "learn.solarfarm.App",
+            "projectName": "solar-farm-api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

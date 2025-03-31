@@ -1,0 +1,45 @@
+.border{
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.border-blue{
+    border: 1px solid blue;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.border-green{
+    border: 1px solid green;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.border-green{
+    border: 1px solid green;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center{
+    text-align: center;
+}
+.border-red{
+    border: 1px solid red;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}

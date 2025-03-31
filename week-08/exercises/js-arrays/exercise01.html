@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Arrays - Exercise 01</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Arrays - Exercise 01</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * REMOVE EVERY OTHER
+     * 
+     * Create a function named `removeEveryOther` that accepts an array.
+     * 
+     * Create a new array by skipping every other element in the parameter array
+     * starting at the second (index 1).
+     * 
+     * Return the new array.
+     * 
+     * Hint: `filter` is useful here.
+     */
+
+     // Your code here...
+    function removeEveryOther(arr){
+        return arr.filter((arr, index) => index % 2 === 0);
+    }
+
+  </script>
+
+  <script src="./tests/exercise01-test.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+* {
+  margin: 10px;
+  text-align: center;
+}
+
+.btn {
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 75px;
+  text-align: center;
+}
+.ingredients-container {
+  display: flex;
+  flex-direction: column; /* Stack the ingredients vertically */
+  align-items: center;    /* Center the ingredients horizontally */
+  justify-content: center; /* Center the content vertically */
+  margin: 0 auto;         /* Optional: ensures it is centered horizontally if the parent container has a width */
+  padding: 10px; /* Optional: add padding around the container */
+}
+.ingredient-btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.ingredient-btn.bun-btn{
+  width: 200px;
+}
+.ingredient-btn.patty-btn{
+  width: 160px;
+}
+.ingredient-btn.cheese-btn{
+  width: 150px;
+  height: 35px;
+}
+.ingredient-btn.tomato-btn{
+  width: 150px;
+  height: 35px;
+}
+.ingredient-btn.lettuce-btn{
+  width: 150px;
+  height: 35px;
+}
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 75px;
+  text-align: center;
+}
+.bun-btn {
+  background-color: #ffc107;
+  color: white;
+  border: #ffc107;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 75px;
+  text-align: center;
+}
+.patty-btn {
+  background-color: saddlebrown;
+  color: white;
+  border: saddlebrown;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 75px;
+  text-align: center;
+}
+.cheese-btn {
+  background-color: yellow;
+  color: black;
+  border: yellow;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 75px;
+  text-align: center;
+}
+.tomato-btn {
+  background-color: red;
+  color: white;
+  border: red;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 75px;
+  text-align: center;
+}
+.lettuce-btn {
+  background-color: green;
+  color: white;
+  border: green;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 75px;
+  text-align: center;
+}
+.btn-light {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+}
+
+.btn-light:hover {
+  background-color: #e2e6ea;
+}

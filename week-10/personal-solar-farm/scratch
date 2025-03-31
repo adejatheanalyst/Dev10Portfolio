@@ -1,0 +1,14 @@
+44404 5555 4312 9908
+luhn algortithm
+
+take all digits in the credit card number and add them except last digit
+
+44404 5555 4312 990
+52 running number
+
+with last number the total should be divisble by ten
+44404 5555 4312 9908
+60
+
+<!-- Another hashing method -->
+44404 5555 4312 9908

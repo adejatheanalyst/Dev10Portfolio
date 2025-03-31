@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Counter</title>
+</head>
+<body>
+
+  <h1>Button Counter</h1>
+
+  <h2 id="countHeading">0</h2>
+
+  <div>
+    <button
+      onclick="handleDecrement()"
+      style="width: 25px; height: 25px;">-</button>
+    <button
+      onclick="handleIncrement()"
+      style="width: 25px; height: 25px;">+</button>
+  </div>
+
+  <script>
+
+    let count = 0;
+
+    const countHeadingElement = document.getElementById('countHeading');
+
+    function handleIncrement() {
+      count++;
+      countHeadingElement.innerText = count;
+    }
+
+    function handleDecrement() {
+      count--;
+      countHeadingElement.innerText = count;
+    }
+
+  </script>
+
+</body>
+</html>

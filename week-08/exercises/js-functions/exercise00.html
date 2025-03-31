@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Functions - Exercise 00</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Functions - Exercise 00</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * FIRST VOWEL
+     * 
+     * Complete the function `getFirstVowel`.
+     * It should return the first vowel in a string.
+     * If the string doesn't contain vowels, `value` is null, 
+     * or `value` is undefined, return an empty string.
+     */
+
+    function getFirstVowel(value) {
+      // Your code here...
+      if(typeof value != "string"){
+      return "";
+      }
+      const vowels = "aeiouAEIOU";
+      for(i = 0; i <value.length; i++){
+        let char = value.charAt(i)
+        if(char === vowels){
+          return char;
+        }
+      }
+      return "";
+    }
+
+  </script>
+
+  <script src="./tests/exercise00-test.js"></script>
+
+</body>
+</html>

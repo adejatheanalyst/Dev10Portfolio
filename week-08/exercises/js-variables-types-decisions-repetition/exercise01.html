@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Variables, Types, Decisions, and Repetition - Exercise 01</title>
+</head>
+<body>
+
+  <h1>JavaScript Variables, Types, Decisions, and Repetition - Exercise 01</h1>
+
+  <p><em>Use the DevTools console to confirm the behavior of your code.</em></p>
+
+  <script>
+
+    /**
+     * MANAGER FEATURE REQUESTS
+     * 
+     * You have three managers: A, B, and C.
+     * Occasionally, they ask you to add features to your company software.
+     * 
+     * Use if/else statements to enforce the following rules:
+     * - If all three ask for the feature, print "Feature in progress."
+     * - If any two of the three ask, print "Adding feature to schedule."
+     * - If only one of the three ask, print "Going to hold off for a bit."
+     * - If none of the managers ask, print "Nothing to do..."
+     */
+
+    const managerAAsked = true;
+    const managerBAsked = false;
+    const managerCAsked = false;
+
+    // 1. Add decisions statements to cover all scenarios.
+    if(managerAAsked && managerBAsked && managerCAsked) {
+      console.log("Feature in progress.");
+    } else if ((managerAAsked && managerBAsked) || (managerCAsked && managerBAsked) || (managerAAsked && managerCAsked)) {
+      console.log("Adding feature to schedule.");
+    } else if (managerAAsked || managerBAsked || managerCAsked) {
+      console.log("Going to hold off for a bit.");
+    } else {
+      console.log("Nothing to do...");
+    }
+    
+
+
+    // 2. Change manager variables to test all scenarios.
+
+
+
+
+  </script>
+
+</body>
+</html>

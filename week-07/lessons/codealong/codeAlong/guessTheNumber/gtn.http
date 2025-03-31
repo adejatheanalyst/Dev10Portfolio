@@ -1,0 +1,14 @@
+POST http://localhost:8080/game/start HTTP/1.1
+
+###
+
+POST http://localhost:8080/game/guess HTTP/1.1
+content-type: application/json
+
+{
+  "number": "27"
+}
+
+###
+
+GET http://localhost:8080/api/backer?criteria=Booth HTTP/1.1

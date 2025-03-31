@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Functions - Exercise 04</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Functions - Exercise 04</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * THREE FUNCTIONS
+     * 
+     * 1. Create a function.
+     * Name: areInOrder
+     * Parameters: number, number, number
+     * Returns: boolean
+     * Description: return true if the three parameters are in ascending order.
+     * Otherwise, returns false.
+     * (See exercise01.)
+     * 
+     * 2. Create a function.
+     * Name: areContiguous
+     * Parameters: number, number, number
+     * Returns: boolean
+     * Description: return true if a parameter is one step away from the next parameter. That is, they're "next to" one
+     * another. A step can be either a step up or a step down.
+     * Otherwise, returns false.
+     * Examples
+     * 1, 2, 3 -> true
+     * 1, 1, 2 -> false (first param must be either one less or one more than the second)
+     * 1, 2, 1 -> true
+     * 1, 5, 7 -> false
+     * 0, 1, 2 -> true
+     * 7, 6, 5 -> true
+     * 7, 5, 6 -> false
+     * 1, 0, 1 -> true
+     * 
+     * 3. Create a function.
+     * Name: isAscendingContiguous
+     * Parameters: number, number, number
+     * Returns: boolean
+     * Description: return true if the three parameters are in ascending order and are contiguous
+     * Otherwise, returns false.
+     * Hint: call areInOrder and areContiguous. Neither method can guarantee the result alone, but together they solve
+     * the problem.
+     */
+
+    // Your code here...
+    console.log(typeof function(){});
+
+    const areInOrder = (value1, value2, value3) => {
+      if (value1 <= value2 && value2 <= value3) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    const areContiguous = (value1, value2, value3) => {
+      if((value1 + 1) === value2 || (value1 - 1) === value2 &&( value2 + 1 )=== value3 || (value2 - 1) === value3){
+      return true;  
+    } else{
+      return false;
+    }
+  }
+  const isAscendingContiguous = (value1, value2, value3) =>{
+    return areInOrder(value1, value2, value3) && areContiguous(value1,value2,value3)
+  }
+
+
+  </script>
+
+  <script src="./tests/exercise04-test.js"></script>
+
+</body>
+</html>

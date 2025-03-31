@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Objects - Exercise 04</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Objects - Exercise 04</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * EXTRACT NAMES
+     * 
+     * Create a function named `extractNames` that accepts on array of objects.
+     * 
+     * Transform the array into a new array that only contains strings.
+     * Strings are drawn from the objects' `name` property, but only if it exists.
+     * 
+     * Return the result.
+     * 
+     * Hint: the `map` method is useful here.
+     */
+
+    // Your code here...
+    function extractNames(arr){
+        return arr.map((element) => element.name)
+                .filter((element) => element !== undefined);
+        }
+
+  </script>
+
+  <script src="./tests/exercise04-test.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capsule Hotel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <h1>Capsule Hotel</h1>
+        <div class="row">
+            <div class="col">
+                <h2>Admin</h2>
+                <form onsubmit="checkIn(event)" class="mb-3">
+                    <fieldset>
+                        <legend>Check In a Guest</legend>
+                        <div class="form-row">
+                            <div class="form-group col-md-9">
+                                <label for="guestName">Guest Name</label>
+                                <input type="text" class="form-control" id="guestName">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="checkInCapsuleNumber">Capsule #</label>
+                                <input type="number" class="form-control" id="checkInCapsuleNumber">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Check In</button>
+                    </fieldset>
+                </form>
+                <form onsubmit="checkOut(event)" class="mb-3">
+                    <fieldset>
+                        <legend>Check Out a Guest</legend>
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <label for="checkOutCapsuleNumber">Capsule #</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="number" class="form-control" id="checkOutCapsuleNumber">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary">Check Out</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <h3>Messages</h3>
+                <div id="messages" role="alert"></div>
+            </div>
+            <div class="col">
+                <h2>Capsules</h2>
+                <div id="capsules"></div>
+            </div>
+        </div>
+    </main>
+    <script src="code.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs</title>
+</head>
+<body>
+
+  <h1>Tabs</h1>
+
+  <button onclick="showTab('tab1')">Tab 1</button>
+  <button onclick="showTab('tab2')">Tab 2</button>
+  <button onclick="showTab('tab3')">Tab 3</button>
+
+  <div id="tab1" class="tab">
+    <h2>Tab 1</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iusto quod itaque cumque doloribus rem, ducimus 
+      laudantium, ipsam explicabo reprehenderit sed cupiditate illum? Suscipit, tenetur quos? Ab dolorem, repellat assumenda, 
+      minus illo itaque voluptates iste amet maxime rerum inventore rem? Pariatur magni asperiores error laborum commodi suscipit 
+      consectetur quo, ratione facilis, quasi consequuntur tempore voluptatem unde labore reiciendis quas hic quisquam at corrupti 
+      dolorum, doloribus nesciunt accusantium ducimus rem! Libero laboriosam, inventore nam vel facere fugit. Autem corporis, 
+      natus error molestias optio dolorum aspernatur nam quasi laudantium sit neque debitis tempora, assumenda facere quisquam, 
+      ipsam quam nihil aliquam commodi ipsum.</p>
+  </div>
+
+  <div id="tab2" class="tab">
+    <h2>Tab 2</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum nemo voluptatem nobis optio dolor, quas quae sit nesciunt 
+      quisquam voluptatum harum similique laudantium corrupti sunt inventore assumenda laborum, vel rem obcaecati fugit a, unde 
+      ipsum! Fuga excepturi, facilis quod sint harum at tempore laboriosam provident maxime, pariatur ab! Temporibus distinctio 
+      eius, nihil ratione alias ea eligendi iure delectus quo ullam sed accusantium, illo error, eaque dignissimos pariatur 
+      officia ut repudiandae porro earum nobis sit? Animi eos assumenda odio ipsum, fuga totam quam aperiam quia blanditiis neque 
+      magnam harum! Obcaecati recusandae consequuntur magnam vel earum. Numquam ex, possimus, aperiam aspernatur distinctio 
+      deleniti nemo, alias non natus aliquam dolore vitae officiis voluptatibus eum? Recusandae architecto deleniti voluptatem 
+      libero dicta iste praesentium quam.</p>
+  </div>
+
+  <div id="tab3" class="tab">
+    <h2>Tab 3</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat ut odio voluptates explicabo qui laborum non quo atque 
+      quam, impedit, provident facere corrupti? Facilis aliquam sequi omnis ipsum. Soluta optio, placeat fugit consectetur 
+      deserunt nisi sunt cum officia ut nemo voluptatem ipsum. Maxime perferendis delectus nesciunt porro repellat et rerum 
+      doloremque placeat fugit iure minima deserunt, id dolorem maiores quos quibusdam atque similique minus ipsum nam magnam 
+      quae. Doloremque, distinctio a illum aperiam natus officia ipsum et consectetur quaerat molestias provident unde eaque, ut 
+      consequuntur. Quibusdam facere quas dignissimos cumque?</p>
+  </div>
+
+  <script>
+
+    const tabs = document.querySelectorAll('.tab');
+
+    function showTab(tabId) {
+      tabs.forEach(tab => {
+        if (tab.id === tabId) {
+          tab.style.display = 'block';
+        } else {
+          tab.style.display = 'none';
+        }
+      });
+    }
+
+    showTab('tab1');
+
+  </script>
+</body>
+</html>

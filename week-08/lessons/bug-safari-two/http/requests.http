@@ -1,0 +1,54 @@
+@baseUrl = http://localhost:8080/sighting
+
+GET {{baseUrl}} HTTP/1.1
+
+###
+
+GET {{baseUrl}}/1 HTTP/1.1
+
+###
+
+POST {{baseUrl}} HTTP/1.1
+Content-Type: application/json
+
+{}
+
+###
+
+POST {{baseUrl}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "bugType": "Mosquito",
+  "description": "mosquitos are jerks",
+  "date": "2020-07-04",
+  "order": "Diptera",
+  "interest": 0.0
+}
+
+###
+
+PUT {{baseUrl}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+  "sightingId": 4
+}
+
+###
+
+PUT {{baseUrl}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+  "sightingId": 4,
+  "bugType": "Mosquito",
+  "description": "mosquitos are jerks",
+  "date": "2020-08-04",
+  "order": "Diptera",
+  "interest": 0.0
+}
+
+###
+
+DELETE {{baseUrl}}/4 HTTP/1.1

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Variables, Types, Decisions, and Repetition - Exercise 06</title>
+</head>
+<body>
+
+  <h1>JavaScript Variables, Types, Decisions, and Repetition - Exercise 06</h1>
+
+  <p><em>Use the DevTools console to confirm the behavior of your code.</em></p>
+
+  <script>
+
+    /**
+     * INTERLEAVE
+     * 
+     * 1. Write a loop to interleave two strings to form a new string.
+     * To interleave, during each loop take one character from the first string and add it to the result
+     * and take one character from the second string and add it to the result.
+     * If there are no more characters available, don't add characters.
+     * 
+     * 2. Print the result.
+     * 
+     * Examples
+     * "abc", "123" -> "a1b2c3"
+     * "cat", "dog" -> "cdaotg"
+     * "wonder", "o" -> "woonder"
+     * "B", "igstar" -> "Bigstar"
+     * "", "huh?" -> "huh?"
+     * "wha?", "" -> "wha?"
+     */
+
+    // Change these values to test.
+    const first = "abc";
+    const second = "123";
+
+    // Your code here...
+    let result= ""
+    let maxLength = Math.max(first.length, second.length);
+    for (i = 0; i < maxLength; i++){
+      if( i <first.length){
+        result += first.charAt(i);
+      }if( i < second.length){
+        result += second.charAt(i);
+      }
+    } console.log(result)
+
+  </script>
+
+</body>
+</html>

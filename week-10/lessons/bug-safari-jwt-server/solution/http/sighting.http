@@ -1,0 +1,49 @@
+@url = http://localhost:8080
+@token = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidWctc2FmYXJpIiwic3ViIjoiam9obkBzbWl0aC5jb20iLCJhcHBfdXNlcl9pZCI6MSwiYXV0aG9yaXRpZXMiOiJBRE1JTiIsImV4cCI6MTY2NDIyMjM4NX0.Xi4oL6zNhjsdfuzVylCoszC0EL1N9mxYcDkHvDuj67M
+
+###
+
+GET {{url}}/sighting HTTP/1.1
+
+###
+
+GET {{url}}/sighting/1 HTTP/1.1
+
+###
+
+POST {{url}}/sighting HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "bugType": "Mosquito",
+  "order": {
+    "bugOrderId": 4
+  },
+  "description": "annoying",
+  "date": "2020-08-12",
+  "interest": 0.1
+}
+
+###
+
+PUT {{url}}/sighting/4 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "sightingId": 4,
+  "bugType": "Mosquito",
+  "order": {
+    "bugOrderId": 4
+  },
+  "description": "very annoying",
+  "date": "2020-08-12",
+  "interest": 0.1
+}
+
+###
+
+DELETE {{url}}/sighting/4 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}

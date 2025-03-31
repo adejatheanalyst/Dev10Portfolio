@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Variables, Types, Decisions, and Repetition - Exercise 05</title>
+</head>
+<body>
+
+  <h1>JavaScript Variables, Types, Decisions, and Repetition - Exercise 05</h1>
+
+  <p><em>Use the DevTools console to confirm the behavior of your code.</em></p>
+
+  <script>
+
+    /**
+     * DOUBLE IT
+     * 
+     * 1. Write a loop that "doubles" each character in a word.
+     * You'll need a new string variable to store the result.
+     * 
+     * 2. Print the result.
+     * 
+     * Examples
+     * ===============
+     * "dog" -> "ddoogg"
+     * "what?" -> "wwhhaatt??"
+     * "" -> "" (empty string has nothing to double)
+     * " " -> "  " (but whitespace should be doubled)
+     * "open & shut" -> "ooppeenn  &&  sshhuutt"
+     * "Eep" -> "EEeepp"
+     */
+
+    // Change this value to test.
+    const phrase = "phrase";
+
+    // Your code here...
+    let doublePhrase = "";
+    for(let i = 0; i < phrase.length; i++){
+      doublePhrase += phrase.charAt(i);
+      doublePhrase += phrase.charAt(i)
+    }
+    console.log(doublePhrase);
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+@url = http://localhost:8080/api/pets
+
+GET {{url}} HTTP/1.1
+
+###
+
+GET {{url}}/1 HTTP/1.1
+
+### 
+
+GET {{url}}/999 HTTP/1.1
+
+### 
+
+# POST Happy Path
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Potato",
+  "type": "CAT",
+  "breed": "Siamese Cat",
+  "dob": "2022-07-31",
+  "vaccinationStatus": "NOT_UP_TO_DATE",
+  "imageUrl": "https://en.wikipedia.org/wiki/Siamese_cat#/media/File:Siam_lilacpoint.jpg",
+  "adopted": true
+}
+
+### 
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": ""
+}
+
+### 
+
+# No Duplicates
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Potato",
+  "type": "CAT",
+  "breed": "Siamese Cat",
+  "dob": "2022-07-31",
+  "vaccinationStatus": "NOT_UP_TO_DATE",
+  "imageUrl": "https://en.wikipedia.org/wiki/Siamese_cat#/media/File:Siam_lilacpoint.jpg",
+  "adopted": true
+}
+
+### 
+
+# No Future DOB
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Potato2",
+  "type": "CAT",
+  "breed": "Siamese Cat",
+  "dob": "2026-07-31",
+  "vaccinationStatus": "NOT_UP_TO_DATE",
+  "imageUrl": "https://en.wikipedia.org/wiki/Siamese_cat#/media/File:Siam_lilacpoint.jpg",
+  "adopted": true
+}
+
+### 
+
+# Update Happy Path
+
+# Update pet id with newly created pet
+
+PUT {{url}}/9 HTTP/1.1
+Content-Type: application/json
+
+{
+  "petId": 9,
+  "name": "Ava Potato",
+  "type": "CAT",
+  "vaccinationStatus": "NOT_UP_TO_DATE",
+  "breed": "Siamese Shorthair",
+  "dob": "2022-07-31",
+  "adopted": true,
+  "imageUrl": "https://en.wikipedia.org/wiki/Siamese_cat#/media/File:Siam_lilacpoint.jpg"
+}
+
+### 
+
+# Update No Duplicates
+
+PUT {{url}}/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "petId": 1,
+  "name": "Ava Potato",
+  "type": "CAT",
+  "vaccinationStatus": "NOT_UP_TO_DATE",
+  "breed": "Siamese Shorthair",
+  "dob": "2022-07-31",
+  "adopted": true,
+  "imageUrl": "https://en.wikipedia.org/wiki/Siamese_cat#/media/File:Siam_lilacpoint.jpg"
+}
+### 
+
+# Update Unhappy Path
+
+PUT {{url}}/6 HTTP/1.1
+Content-Type: application/json
+
+{
+  "petId": 6,
+  "name": ""
+}
+
+### 
+
+# Update Unhappy Path -- ID Conflict 
+
+PUT {{url}}/999 HTTP/1.1
+Content-Type: application/json
+
+{
+  "petId": 9,
+  "name": "Ava Potato",
+  "type": "CAT",
+  "vaccinationStatus": "NOT_UP_TO_DATE",
+  "breed": "Siamese Shorthair",
+  "dob": "2022-07-31",
+  "adopted": true,
+  "imageUrl": "https://en.wikipedia.org/wiki/Siamese_cat#/media/File:Siam_lilacpoint.jpg"
+}
+
+### 
+
+###
+
+# Delete Happy Path
+
+# Update id with newly created pet 
+
+DELETE {{url}}/9 HTTP/1.1
+
+### 
+
+DELETE {{url}}/999 HTTP/1.1

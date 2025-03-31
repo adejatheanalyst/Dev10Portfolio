@@ -1,0 +1,94 @@
+.border{
+    height: 375px;
+    border: 2px solid blue;
+    width: 125px;
+    margin-top: 15px;
+    box-shadow: 10px 5px 5px #ADD8E6;
+    margin-left: auto;
+    margin-right: auto;
+    /*font-size: 80px;*/
+}
+h1{
+    text-align: center;
+    margin-top: 10px;
+
+}
+h2{
+    text-align: center;
+    margin-top: 10px;
+    color: blue;
+}
+.border-check-in{
+    margin-left: auto;
+    margin-right: auto;
+}
+.border-check-out{
+    margin-left: auto;
+    margin-right: auto;
+}
+.check-in-form{
+        margin-top: 10px;
+       margin-left: 300px;
+       margin-right: 10px;
+       margin-bottom: 10px;
+    }
+.check-out-button{
+    margin-top: 10px;
+    margin-left: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    .check-out-form{
+            margin-top: 10px;
+           margin-left: 300px;
+           margin-right: 10px;
+           margin-bottom: 10px;
+        }
+.check-in-button{
+        margin-top: 10px;
+        margin-left: 100px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        background: blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+
+
+.data{
+    border: green;
+    border-radius: 10px;
+    background: green;
+    width: 115px;
+    padding: 2px 2px;
+    margin-top: 10px;
+    margin-left: 3px;
+    text-align: center;
+}
+.occupied{
+    border: red;
+    border-radius: 10px;
+    background: red;
+    width: 100px;
+    padding: 2px 2px;
+    margin-top: 10px;
+    text-align: center;
+
+}
+.error{
+    height: 10px;
+    width: 200px;
+    margin-top: 15px;
+    color: red;
+    text-align: center;
+
+}

@@ -1,0 +1,154 @@
+@url=http://localhost:8080/api/question
+
+
+
+GET {{url}}
+
+###
+
+GET {{url}}/myQuestions
+Authorization: 1
+
+###
+
+GET {{url}}/myQuestions
+
+
+### No questions found for user
+
+GET {{url}}/myQuestions
+Authorization: 999
+
+### 
+
+# Happy Path
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+Authorization: 2
+
+{
+  "title": "Test Question1",
+  "body": "This is a test question2"
+}
+
+### 
+
+# No Authorization Header 401
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Test Question",
+  "body": "This is a test question"
+}
+
+### fail user does not exist
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+Authorization: 999
+
+{
+  "title": "Test Question",
+  "body": "This is a test question"
+}
+
+### pass case
+
+PUT {{url}}/2 HTTP/1.1
+Content-Type: application/json
+Authorization: 1
+
+ {
+    "questionId": 2,
+    "title": "Test Question",
+    "body": "This is a test question2"
+ }
+
+### 
+
+
+# No authorization header -> 401
+PUT {{url}}/2 HTTP/1.1
+Content-Type: application/json
+
+  {
+    "questionId": 2,
+    "title": "Test Question1",
+    "body": "This is a test question3"
+ }
+
+### 
+
+# Not this question's owner -> 403
+PUT {{url}}/2 HTTP/1.1
+Content-Type: application/json
+Authorization: 1
+
+{
+    "questionId": 2,
+    "title": "Test Question",
+    "body": "This is a test question2"
+ }
+
+###
+
+
+# Question not found -> 400
+PUT {{url}}/99 HTTP/1.1
+Content-Type: application/json
+Authorization: 1
+
+{
+    "questionId": 99,
+    "title": "Test Question",
+    "body": "This is a test question2"
+ }
+
+###
+
+// Update Unhappy Path - Missing Fields
+
+PUT {{url}}/1 HTTP/1.1
+Content-Type: application/json
+Authorization: 1
+
+{
+    "questionId": 1,
+    "title": "",
+    "body": "This is a test question2"
+ }
+
+###
+
+// Update Unhappy Path - Missing Fields
+
+PUT {{url}}/1 HTTP/1.1
+Content-Type: application/json
+Authorization: 1
+
+{
+    "questionId": 1,
+    "title": "Test2",
+    "body": ""
+ }
+
+###
+
+# Happy Path
+DELETE {{url}}/1 HTTP/1.1
+Authorization: 1
+
+###
+
+# No authorization header - > 401
+DELETE {{url}}/2 HTTP/1.1
+
+###
+
+
+# Not the owner of the question - > 403
+DELETE {{url}}/3 HTTP/1.1
+Authorization: 1
+
+###

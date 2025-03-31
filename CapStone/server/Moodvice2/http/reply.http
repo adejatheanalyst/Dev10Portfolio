@@ -1,0 +1,151 @@
+@url=http://localhost:8080/api/reply
+
+###
+
+# GET /api/reply happy path
+###
+GET {{url}}/6
+
+###
+# GET /api/reply  not found path
+###
+GET {{url}}/3
+
+###
+# POST /api/reply  HAPPY PATH
+###
+POST {{url}}/2
+Content-Type: application/json
+Authorization:2
+
+{
+  "title": "testbody5",
+  "body": "testbody5",
+  "moodId": 2
+}
+###
+# POST /api/reply  mismatch id
+###
+POST {{url}}/2
+Content-Type: application/json
+Authorization:1
+
+{
+  "title": "testbody5",
+  "body": "testbody6",
+  "moodId": 2
+}
+###
+# POST /api/reply null title
+###
+POST {{url}}/1
+Content-Type: application/json
+Authorization:1
+
+{
+  "title": "",
+  "body": "testbody8",
+  "moodId": 2
+}
+###
+# POST /api/reply  null body
+###
+POST {{url}}/1
+Content-Type: application/json
+Authorization:1
+
+{
+  "title": "testbody5",
+  "body": "",
+  "moodId": 2
+}
+###
+# POST /api/reply  null moodtype
+###
+POST {{url}}/1
+Content-Type: application/json
+Authorization:1
+
+{
+  "title": "testbody5",
+  "body": "testbody5",
+  "moodId": 0
+}
+###
+# POST /api/reply  moodvice not found
+###
+POST {{url}}/2
+Content-Type: application/json
+Authorization:1
+
+{
+  "title": "testbody5",
+  "body": "anotherbody",
+  "moodId": 2
+}
+############################################################################################################
+# PUT /api/reply/edit/{moodviceId}/{replyId}  HAPPY PATH
+###
+PUT {{url}}/edit/3/6
+Content-Type: application/json
+Authorization:1
+
+{
+  "title": "Newtestbody5",
+  "body": "Newtestbody5",
+  "moodId": 3
+}
+###
+# PUT /api/reply  do not have persmission
+###
+PUT {{url}}/1/3
+Content-Type: application/json
+Authorization:2
+
+{
+  "title": "Newtestbody5",
+  "body": "Newtestbody5",
+}
+###
+# PUT /api/reply  null title
+###
+PUT {{url}}/1/3
+Content-Type: application/json
+Authorization:1
+
+{
+  "title": "",
+  "body": "Newtestbody5",
+  "moodId": 3
+}
+###
+# PUT /api/reply  null body
+###
+PUT {{url}}/1/3
+Content-Type: application/json
+Authorization:1
+
+{
+  "title": "Newtestbody5",
+  "body": "",
+  "moodId": 3
+}
+###
+# PUT /api/reply  user not found
+###
+PUT {{url}}/1/3
+Content-Type: application/json
+Authorization:99
+
+{
+  "title": "Newtestbody5",
+  "body": "Newtestbody5",
+  "moodId": 3
+}
+
+###
+# DELETE /api/reply/{moodviceId}/{replyId}  HAPPY PATH
+###
+DELETE {{url}}/2/7
+Content-Type: application/json
+Authorization:2

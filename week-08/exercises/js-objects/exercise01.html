@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Objects - Exercise 01</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Objects - Exercise 01</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * MAKE OBJECT
+     * 
+     * Create a function named `makeObject`.
+     * 
+     * Parameters: string, string, string
+     * 
+     * Create an object with three properties.
+     * - assign the first parameter to a title property
+     * - assign the second parameter to a firstName property
+     * - assign the third parameter to a lastName property
+     * 
+     * Hint: shorthand properties are useful here, but not strictly necessary.
+     * 
+     * Return the object.
+     */
+
+    // Your code here...
+    function makeObject(title, firstName, lastName){
+      return {
+        title,
+        firstName,
+        lastName
+      };
+    }
+
+  </script>
+
+  <script src="./tests/exercise01-test.js"></script>
+
+</body>
+</html>

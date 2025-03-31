@@ -1,0 +1,33 @@
+#billboard {
+    height: 400px;
+    border: 1px solid black;
+    font-size: 80px;
+    /*width:  50%;*/
+    /*margin-right: 25%;*/
+    /*margin-left: 25%;*/
+}
+.center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.centerText{
+    text-align: center;
+}
+#billboard.border-style-1 {
+    border: 10px solid blue;
+    /*    padding: 10px;*/
+    /*    margin: 10px;*/
+    /*    width: 50%;*/
+    /*    margin-left: auto;*/
+    /*    margin-right: auto;*/
+}
+#billboard.border-style-2 {
+    border: 10px solid purple;
+    border-radius: 23px;
+    /*    padding: 10px;*/
+    /*    margin: 10px;*/
+    /*    width: 50%;*/
+    /*    margin-left: auto;*/
+    /*    margin-right: auto;*/
+}

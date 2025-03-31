@@ -1,0 +1,141 @@
+@url=http://localhost:8080/api/moodVice
+
+###
+# GET /api/moodVice happy path
+###
+GET {{url}}
+
+###
+# GET /api/{moodType} happy path
+###
+GET {{url}}/4
+
+###
+# GET /api/{moodViceId} happy path
+###
+GET {{url}}/2
+
+###
+# GET /api/{moodType} not found path
+###
+GET {{url}}/1
+
+###
+# POST /api/moodVice Happy Path
+###
+POST {{url}}
+Content-Type: application/json
+Authorization: 2
+
+{
+  "title": "4",
+  "body": "testbody5",
+  "moodId":4
+}
+###
+# POST /api/moodVice nonexistent userid
+###
+POST {{url}}
+Content-Type: application/json
+Authorization: 5
+
+{
+  "title": "testitle5",
+  "body": "test2body",
+  "moodId":4
+}
+###
+# POST /api/moodVice fail duplicate body
+###
+POST {{url}}
+Content-Type: application/json
+Authorization: 1
+
+{
+  "title": "testitle5",
+  "body": "I am feeling happy",
+  "moodId":4
+}
+
+###
+# PUT /api/{moodViceId} Happy Path
+###
+PUT {{url}}/1
+Content-Type: application/json
+Authorization: 1
+
+{
+  "title": "testitle6",
+  "body": "TESTBODY7",
+  "moodId":2
+}
+###
+# PUT /api/{moodViceId} Nonexistant User
+###
+PUT {{url}}/1
+Content-Type: application/json
+Authorization: 99
+
+{
+  "title": "testitle6",
+  "body": "TESTBODY6",
+  "moodId":2
+}
+###
+# PUT /api/{moodViceId} do not own
+###
+PUT {{url}}/1
+Content-Type: application/json
+Authorization: 2
+
+{
+  "title": "testitle6",
+  "body": "TESTBODY6",
+  "moodId":2
+}
+###
+# PUT /api/{moodViceId} null title
+###
+PUT {{url}}/1
+Content-Type: application/json
+Authorization: 1
+
+{
+  "title": "",
+  "body": "TESTBODY6",
+  "moodId":2
+}
+###
+# PUT /api/{moodViceId} null body
+###
+PUT {{url}}/1
+Content-Type: application/json
+Authorization: 1
+
+{
+  "title": "testitle6",
+  "body": "",
+  "moodId":2
+}
+###
+# PUT /api/{moodViceId} moodtype required
+PUT {{url}}/1
+Content-Type: application/json
+Authorization: 1
+
+{
+  "title": "testitle6",
+  "body": "fsghtgju",
+  "moodId":0
+}
+
+###
+# DELETE /api/{moodViceId} happy path
+###
+DELETE {{url}}/1
+Authorization: 1
+###
+# DELETE /api/{moodViceId} happy path
+###
+DELETE {{url}}/23
+Authorization: 5

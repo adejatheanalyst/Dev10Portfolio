@@ -1,0 +1,68 @@
+
+GET http://localhost:8080/name HTTP/1.1
+
+###
+GET http://localhost:8080/current/time HTTP/1.1
+
+###
+
+GET http://localhost:8080/greet/adeja HTTP/1.1
+
+###
+
+PUT http://localhost:8080/sheep HTTP/1.1
+
+###
+
+GET http://localhost:8080/sheep HTTP/1.1
+
+###
+
+PUT http://localhost:8080/sheep/6 HTTP/1.1
+
+###
+
+POST http://localhost:8080/sheep HTTP/1.1
+Content-Type: application/json
+
+{
+  "amount": 5
+}
+
+###
+
+DELETE http://localhost:8080/sheep HTTP/1.1
+
+###
+
+GET http://localhost:8080/todo HTTP/1.1
+
+###
+
+PUT http://localhost:8080/todo HTTP/1.1
+Content-Type: application/json
+
+{
+ ["todos": "clean",
+ "todos": "Workout"]
+}
+
+###
+
+PUT http://localhost:8080/todo/WORKOUT HTTP/1.1
+
+###
+
+DELETE http://localhost:8080/todo/1 HTTP/1.1
+
+###
+
+POST http://localhost:8080/todo HTTP/1.1
+Content-Type: application/json
+
+{
+ "todos": "clean",
+ "todos": "Workout",
+ "todos": "cook"
+}
+

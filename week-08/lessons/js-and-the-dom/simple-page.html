@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Page</title>
+</head>
+<body>
+<h1>Simple Page</h1>
+<p>This is a simple page.</p>
+<p>It's not very exciting.</p>
+<h1>Button Counter</h1>
+
+<h2 id="countHeading">0</h2>
+
+<div>
+    <!-- UPDATED: removed the onclick attributes from both buttons -->
+    <button
+            id="decrementButton"
+            style="width: 25px; height: 25px;">-</button>
+    <button
+            id="incrementButton"
+            style="width: 25px; height: 25px;">+</button>
+</div>
+
+<script>
+
+    let count = 0;
+
+    const countHeadingElement = document.getElementById('countHeading');
+    // NEW get references to both buttons
+    const decrementButtonElement = document.getElementById('decrementButton');
+    const incrementButtonElement = document.getElementById('incrementButton');
+
+    // NEW add event listeners to both buttons
+    decrementButtonElement.addEventListener('click', handleDecrement);
+    incrementButtonElement.addEventListener('click', handleIncrement);
+
+    function handleIncrement() {
+        count++;
+        countHeadingElement.innerText = count;
+    }
+
+    function handleDecrement() {
+        count--;
+        countHeadingElement.innerText = count;
+    }
+
+</script>
+</body>
+</html>

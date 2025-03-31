@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Arrays - Exercise 03</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+
+  <h1>JavaScript Arrays - Exercise 03</h1>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+
+  <script>
+
+    /**
+     * ITEM BETWEEN ARRAYS
+     * 
+     * Create a function named `mergeItemBetweenArrays` that accepts an array,
+     * any other value, and an array.
+     * 
+     * Return a new array that includes all elements from the first array, the value,
+     * then all the elements from the last array parameter.
+     * 
+     * Hint: spread syntax is useful here.
+     * 
+     * Examples
+     * [1, 2], "a", [true]                   => [1, 2, "a", true]
+     * [], 87, [9]                           => [87, 9]
+     * [14, 15], 0, []                       => [14, 15, 0]
+     * ["red", "blue"], "orange", ["yellow"] => ["red", "blue", "orange", "yellow"]
+     * ["red"], ["orange"], ["yellow"]       => ["red", ["orange"], "yellow"]
+     */
+
+    // Your code here...
+    function mergeItemBetweenArrays(arr1, value, arr2){
+      return [...arr1, value, ...arr2];
+    }
+
+  </script>
+
+  <script src="./tests/exercise03-test.js"></script>
+
+</body>
+</html>

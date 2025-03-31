@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+</head>
+<body>
+
+  <h1>Image Gallery</h1>
+
+  <p><em>Click on an image to view a larger version.</em></p>
+
+  <div>
+    <img src="https://picsum.photos/id/1/50" alt="Random Image">
+    <img src="https://picsum.photos/id/23/50" alt="Random Image">
+    <img src="https://picsum.photos/id/50/50" alt="Random Image">
+    <img src="https://picsum.photos/id/77/50" alt="Random Image">
+    <img src="https://picsum.photos/id/89/50" alt="Random Image">
+    <img src="https://picsum.photos/id/92/50" alt="Random Image">
+    <img src="https://picsum.photos/id/100/50" alt="Random Image">
+    <img src="https://picsum.photos/id/123/50" alt="Random Image">
+    <img src="https://picsum.photos/id/127/50" alt="Random Image">
+  </div>
+
+  <div id="largeImagePlaceholder"></div>
+
+  <script>
+
+    const images = document.querySelectorAll('img');
+    const largeImagePlaceholder = document.querySelector('#largeImagePlaceholder');
+
+    images.forEach(image => {
+      image.addEventListener('click', () => {
+        const imageSource = image.src;
+        const largeImageSource = imageSource.replace(/50$/, '700/500');
+        largeImagePlaceholder.innerHTML = `<img src="${largeImageSource}" alt="${image.alt}">`;
+      });
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+@url=http://localhost:8080/api/resource
+
+###
+# GET /api/resource happy path
+###
+GET {{url}}

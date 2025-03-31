@@ -1,0 +1,21 @@
+@url=http://localhost:8080/api/forager
+
+
+###  FIND BY ID HAPPY PATH
+GET {{url}}/1001 HTTP/1.1
+
+###  FIND BY ID UnHAPPY PATH
+GET {{url}}/8000 HTTP/1.1
+
+###  create forager HAPPY PATH
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "testFirst",
+  "lastName": "testLast",
+  "state": "CT"
+}
+
+### delete forager HAPPY PATH
+DELETE {{url}}/1001 HTTP/1.1

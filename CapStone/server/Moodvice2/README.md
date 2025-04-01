@@ -102,6 +102,10 @@
 # Stretch goals:
 [_] have suggestions based off past mood trends
 
+[_] implement a daily check in system
+
+[_] implement users can upload their own media
+
 [_] implement daily check-ins and reminders
 
 [_] implement reward system for constant check ins

@@ -1,7 +1,7 @@
 
 import { useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom"
-import { Code, Editable, Stack, useEditable, Button, Input, Grid } from "@chakra-ui/react"
+import { Code, Editable, Stack, useEditable, Button, Input, Grid, FileUpload, Icon, Box} from "@chakra-ui/react"
 import {
     Field,
     Fieldset,
@@ -18,11 +18,31 @@ export default function UserAccount({loggedIn, setLoggedIn}){
     const [errors, setErrors] = useState([])
     const [isEditing, setIsEditing] = useState(false)
     const navigate = useNavigate()
+    const [file , setFile] = useState(null)
+    const handleFileChange = (event) => {
+        setFile(event.target.files[0]);
+    };
+    const handleFileUpload =  async () => {
+        if(!file) return;
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const response = await fetch(`http://localhost:8080/api/user/${loggedIn.userId}/profileImg`, {
+            method: "POST",
+            body: formData,
+            headers: {
+                Authorization: loggedIn.userId
+            }
+        });
+
+        const data = await response.json();
+        console.log("Uploaded: ", data);
+    }
 
 
-function handleUpdate(event){    
-    setIsEditing(true);
-}
+            function handleUpdate(event){   
+                setIsEditing(true);
+                }
 function handleSubmit(evt){
     evt.preventDefault()
     fetch(`http://localhost:8080/api/user/${loggedIn.userId}`, {
@@ -115,6 +135,21 @@ useEffect(() => {
             disabled={!isEditing} onChange={handleChange}>
             </Input>
             </Fieldset.Root>
+
+            <FileUpload.Root maxW ="x1" maxFiles = {1} type="file" onChange={handleFileChange} >
+            <FileUpload.HiddenInput />
+            <FileUpload.Dropzone>
+        <FileUpload.DropzoneContent>
+          <Box>Drag and drop to upload profile picture. </Box>
+          <Box color="fg.muted">.png, .jpg up to 5MB</Box>
+        </FileUpload.DropzoneContent>
+      </FileUpload.Dropzone>
+      <FileUpload.List onChange={handleChange}onUpload={handleFileUpload}/>
+    </FileUpload.Root>
+
+
+
+
             <Button colorPalette="purple" variant="surface" onClick={isEditing ? handleSubmit : handleUpdate}>
                 {isEditing ? "Save Changes" : "Update Account"}</Button>
                 <>

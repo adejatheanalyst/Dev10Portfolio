@@ -7,6 +7,9 @@ POST {{url}}
 Content-Type: application/json
 
 {
+  "profile_picture":"/testimage.jpg",
+  "first_name":"John",
+  "last_name":"Doe",
   "username": "John Doe",
   "email": "JohnDoe@gmail.com",
   "password": "passwordTest"
@@ -150,4 +153,13 @@ Authorization:1
 DELETE {{url}}/delete/1
 Content-Type: application/json
 Authorization: 2
+
+
+###
+# POST /api/user/{userId}/profileImg upload image happy path
+###
+POST {{url}}/1/moodvice-transparent.png
+Content-Type: application/json
+Authorization: 5
+
 

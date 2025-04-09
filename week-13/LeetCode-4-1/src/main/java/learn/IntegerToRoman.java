@@ -15,13 +15,13 @@ public class IntegerToRoman {
         roman.put(1000, 'M');
         int num = 3749;
         StringBuilder result = new StringBuilder();
-        int divisor = 1000;
+        int divisor = 1000; // most number can be divided by
         while (num > 0) {
-            int digit = num / divisor;
+            int digit = num / divisor; // number divided by divisor
             if (digit > 0) {
-                if (digit == 9) {
-                    result.append(roman.get(divisor));
-                    result.append(roman.get(divisor * 10));
+                if (digit == 9) { //if number is 9
+                    result.append(roman.get(divisor)); // add number to string builder as letter
+                    result.append(roman.get(divisor * 10)); // add 90 to result as XC
                 } else if (digit >= 5) {
                     result.append(roman.get(divisor * 5));
                     for (int i = 0; i < digit - 5; i++) {

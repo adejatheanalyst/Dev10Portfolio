@@ -8,5 +8,7 @@ public interface UserRepository {
     public boolean update(User user);
     public boolean deleteById(int userId);
     public User findByUserId(int userId);
+    public String getUserProfileImg(int userId);
+    public boolean updateProfileImg(int userId, String profileImgUrl);
 
 }

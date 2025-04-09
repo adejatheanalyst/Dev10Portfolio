@@ -166,6 +166,6 @@ class UserServiceTest {
     }
 }
     public static User makeUser() {
-        return new User(1, "test", "password", "testemail@test.com", LocalDate.now());
+        return new User(1,"testUrl","testFirstName", "testLastName", "test", "password", "testemail@test.com", LocalDate.now());
     }
 }

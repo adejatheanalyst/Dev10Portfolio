@@ -14,9 +14,12 @@ public class UserClientRepository implements UserRepository {
     }
     @Override
     public User create(User user) {
-        final String sql = "insert into users (username, email, password) values(:username, :email, :password)";
+        final String sql = "insert into users (profile_image_url, first_name, last_name, username, email, password) values(:profile_image_url, :first_name, :last_name, :username, :email, :password)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcClient.sql(sql)
+                .param("profile_image_url", user.getProfile_picture())
+                .param("first_name", user.getFirst_name())
+                .param("last_name", user.getLast_name())
                 .param("username", user.getUsername())
                 .param("email", user.getEmail())
                 .param("password", user.getPassword())
@@ -39,7 +42,7 @@ public class UserClientRepository implements UserRepository {
     }
     @Override
     public boolean update(User user) {
-        final String sql = "update users set username = :username, email = :email, password = :password where userId = :userId";
+        final String sql = "update users set username = :username, first_name = :first_name, last_name = :last_name, email = :email, password = :password, profile_image_url = :profile_image_url, where userId = :userId";
         return jdbcClient.sql(sql)
                 .param("username", user.getUsername())
                 .param("email", user.getEmail())
@@ -64,5 +67,23 @@ public class UserClientRepository implements UserRepository {
                 .query(new UserMapper())
                 .optional()
                 .orElse(null);
+    }
+    public boolean updateProfileImg(int userId, String profileImgUrl) {
+        final String sql = "update users set profile_image_url = ? where userId = ?";
+        return jdbcClient.sql(sql)
+                .param(profileImgUrl)
+                .param(userId)
+                .update() > 0;
+    }
+    public String getUserProfileImg(int userId) {
+        final String sql = "select profile_image_url from users where userId = ?";
+        return jdbcClient.sql(sql)
+                .param(userId)
+                .query((resultSet) -> {
+                    if(resultSet.next()) {
+                        return resultSet.getString("profile_image_url");
+                    }
+                    return null;
+                });
     }
 }

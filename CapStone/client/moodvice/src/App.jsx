@@ -18,6 +18,9 @@ import { Button, HStack } from "@chakra-ui/react";
 import Home from './components/Home';
 import EditReply from './components/editReply';
 import { ChakraProvider } from "@chakra-ui/react";
+import {Cloudinary} from "@cloudinary/url-gen";
+import { AdvancedImage } from "@cloudinary/react";
+import {fill} from "@cloudinary/url-gen/actions/resize";
 
 
 
@@ -26,7 +29,7 @@ function App() {
 
   const[loggedIn, setLoggedIn] = useState(null);
   const[moodId, setMoodId] = useState(0);
-
+  
   const[hasCheckedForUser, setHasCheckedForUser] = useState(false);
   useEffect(() =>{
     const loggedInUser = localStorage.getItem("loggedIn");
@@ -39,14 +42,20 @@ function App() {
   if(!hasCheckedForUser){
     return <p>Loading...</p>
   }
-
-
+      const cld = new Cloudinary({
+        cloud: {
+          cloudName: 'ddugswahb'
+        }
+      });
+      const myImage = cld.image('moodvice-transparent_l1r0dd');
+      myImage.resize(fill().width(50).height(50));
 
   return (
     <div>
       <Router>
         <div>
           <div class="navBar">
+           
 
           <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
           </div>

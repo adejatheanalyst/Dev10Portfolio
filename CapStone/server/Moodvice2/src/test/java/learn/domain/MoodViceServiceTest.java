@@ -34,7 +34,7 @@ User existingUser = TestHelper.makeUserExisting();
 @Nested class findTests {
     @Test
     void findAll() {
-        List<MoodVice> expected = List.of(new MoodVice(1, "testTitle", "testbody", 1, 4, LocalDate.now()));
+        List<MoodVice> expected = List.of(new MoodVice(1, "testTitle", "testbody", 1, 4,"testUrl", LocalDate.now()));
         when(repository.findAll()).thenReturn(expected);
         List<MoodVice> actual = service.findAll();
         assertEquals(expected, actual);
@@ -42,7 +42,7 @@ User existingUser = TestHelper.makeUserExisting();
 
     @Test
     void findByMoodType() {
-        List<MoodVice> expected = List.of(new MoodVice(1, "testTitle", "testbody", 1, 4, LocalDate.now()));
+        List<MoodVice> expected = List.of(new MoodVice(1, "testTitle", "testbody", 1, 4, "testUrl", LocalDate.now()));
         when(repository.findByMoodType(1)).thenReturn(expected);
         MoodViceResult expectedResult = new MoodViceResult();
         expectedResult.setMoodVices(expected);
@@ -60,7 +60,7 @@ User existingUser = TestHelper.makeUserExisting();
 
     @Test
     void findByUserId() {
-        List<MoodVice> expected = List.of(new MoodVice(4,"testtitle4","testbody4", 1, 1, LocalDate.now()));
+        List<MoodVice> expected = List.of(new MoodVice(4,"testtitle4","testbody4", 1, 1, "testUrl",LocalDate.now()));
         when(repository.findByUserId(1)).thenReturn(expected);
         List<MoodVice> actual = service.findByUserId(1);
         assertEquals(actual,expected);

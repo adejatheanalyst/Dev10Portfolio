@@ -45,7 +45,7 @@ class UserClientRepositoryTest {
     @Nested class updateTests {
     @Test
     void update() {
-        User user = new User(1, "testUsername", "testEmail", "testPassword", LocalDate.now());
+        User user = new User(1, "testUrl", "testFirstname", "testLastName", "testUsername", "testEmail", "testPassword", LocalDate.now());
         user.setUsername("testUsernameTest");
         assertTrue(repository.update(user));
         User actual = repository.findByUsername("testUsernameTest");
@@ -53,7 +53,7 @@ class UserClientRepositoryTest {
     }
     @Test
     void updateFailNoId() {
-        User user = new User(1, "testUsername", "testEmail", "testPassword", LocalDate.now());
+        User user = new User(1, "testUrl", "testFirstname", "testLastName", "testUsername", "testEmail", "testPassword", LocalDate.now());
         user.setUserId(0);
         user.setUsername("testUsernameTest");
         assertFalse(repository.update(user));
@@ -79,20 +79,20 @@ class UserClientRepositoryTest {
     class createTests {
         @Test
         void create() {
-            User user = new User(1, "testUsername100", "testEmail400@email.com", "testPassword4", LocalDate.now());
+            User user = new User(1, "testUrl", "testFirstname", "testLastName", "testUsername", "testEmail", "testPassword", LocalDate.now());
             User actual = repository.create(user);
             assertEquals(5, actual.getUserId());
         }
         @Test
         void createFailUsernameDup() {
-            User user = new User(0, "testUsername2", "testEmail4@email.com", "testPassword4", LocalDate.now());
+            User user = new User(1, "testUrl", "testFirstname", "testLastName", "testUsername2", "testEmail", "testPassword", LocalDate.now());
             assertThrows(DuplicateKeyException.class, () -> {
                 repository.create(user);
             });
         }
         @Test
         void createFailEmailDup() {
-            User user = new User(0, "testUsername4", "testemail2@test.com", "testPassword4", LocalDate.now());
+            User user = new User(1, "testUrl", "testFirstname", "testLastName", "testUsername", "testEmail@email.com", "testPassword", LocalDate.now());
             assertThrows(DuplicateKeyException.class, () -> {
                 repository.create(user);
             });

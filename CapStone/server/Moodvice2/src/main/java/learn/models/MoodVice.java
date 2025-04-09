@@ -10,15 +10,16 @@ public class MoodVice {
     private String body;
     private int moodId;
     private int userId;
+    private String postImg;
     private LocalDate created_at;
 
-
-    public MoodVice(int moodViceId, String title, String body, int userId, int moodId, LocalDate created_at) {
+    public MoodVice(int moodViceId, String title, String body, int moodId, int userId, String postImg, LocalDate created_at) {
         this.moodViceId = moodViceId;
         this.title = title;
         this.body = body;
         this.moodId = moodId;
         this.userId = userId;
+        this.postImg = postImg;
         this.created_at = created_at;
     }
 
@@ -78,16 +79,25 @@ public class MoodVice {
 //        return String.format("%s %s ", title, body);
 //    }
 
+
+    public String getPostImg() {
+        return postImg;
+    }
+
+    public void setPostImg(String postImg) {
+        this.postImg = postImg;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         MoodVice moodVice = (MoodVice) o;
-        return moodViceId == moodVice.moodViceId && moodId == moodVice.moodId && userId == moodVice.userId && Objects.equals(title, moodVice.title) && Objects.equals(body, moodVice.body) && Objects.equals(created_at, moodVice.created_at);
+        return moodViceId == moodVice.moodViceId && moodId == moodVice.moodId && userId == moodVice.userId && Objects.equals(title, moodVice.title) && Objects.equals(body, moodVice.body) && Objects.equals(postImg, moodVice.postImg) && Objects.equals(created_at, moodVice.created_at);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(moodViceId, title, body, moodId, userId, created_at);
+        return Objects.hash(moodViceId, title, body, moodId, userId, postImg, created_at);
     }
 
     @Override
@@ -98,6 +108,7 @@ public class MoodVice {
                 ", body='" + body + '\'' +
                 ", moodId=" + moodId +
                 ", userId=" + userId +
+                ", postImg='" + postImg + '\'' +
                 ", created_at=" + created_at +
                 '}';
     }

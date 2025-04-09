@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import moodviceLogoAbbr from '../assets/monogram-16px.svg'
 import { useNavigate } from 'react-router-dom';
-import { Box,  Button, Stack, Text, HStack} from '@chakra-ui/react';
+import { Box,  Button, Stack, Text, HStack, Avatar} from '@chakra-ui/react';
 
 
 
@@ -85,6 +85,12 @@ return(
                         :<>
                         <ul>
                         <HStack wrap="wrap" gap="6">
+                            <li>
+                            <Avatar.Root size="lg">
+                        <Avatar.Fallback name="Segun Adebayo" />
+                        <Avatar.Image src="https://bit.ly/sage-adebayo" />
+                            </Avatar.Root>
+                            </li>
                         <li>
                             <Button colorPalette="purple"size="lg" variant="surface" onClick={() => {
                                 setLoggedIn(null)

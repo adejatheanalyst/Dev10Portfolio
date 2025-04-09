@@ -5,8 +5,10 @@ import learn.domain.Results.UserResult;
 import learn.domain.UserService;
 import learn.models.User;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -78,6 +80,32 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>("Account not found", HttpStatus.NOT_FOUND);
+        }
+    }
+    @PostMapping("/{userId}/profileImg")
+    public ResponseEntity<Object> updateProfileImg(@PathVariable int userId, @RequestParam("file") MultipartFile file, @RequestHeader Map<String, String> headers) throws Exception {
+        Integer authUserId = getUserId(headers);
+        if (authUserId == null || authUserId != userId) {
+            return new ResponseEntity<>("Not authorized to update profile image", HttpStatus.UNAUTHORIZED);
+        }
+        String result = service.uploadUserImg(file, userId);
+        if (result != null) {
+            return new ResponseEntity<>("Your profile image was uploaded successfully", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("We could not upload you profile image", HttpStatus.BAD_REQUEST);
+        }
+    }
+    @GetMapping("/{userId}/profileImg")
+    public ResponseEntity<?> getUserProfileImg(@PathVariable int userId, @RequestHeader Map<String, String> headers) throws Exception {
+        Integer authUserId = getUserId(headers);
+        if (authUserId == null || authUserId != userId) {
+            return new ResponseEntity<>("Not authorized to view profile image", HttpStatus.UNAUTHORIZED);
+        }
+        byte[] result = service.getUserImg(userId);
+        if (result != null) {
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(result);
+        } else {
+            return new ResponseEntity<>("Profile image not found", HttpStatus.NOT_FOUND);
         }
     }
     private Integer getUserId(Map<String, String> headers) {

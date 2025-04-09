@@ -5,10 +5,35 @@ import learn.domain.Results.ResultType;
 import learn.domain.Results.UserResult;
 import learn.models.User;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
 
 @Service
 public class UserService {
+    private final String UPLOAD_DIR = "src/main/resources/uploads/";
     private final UserRepository repository;
+
+    public String uploadUserImg(MultipartFile file, int userId) throws Exception {
+        String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+        Path path = Paths.get(UPLOAD_DIR, fileName);
+        Files.createDirectories(path.getParent());
+        Files.write(path, file.getBytes());
+        repository.updateProfileImg(userId, fileName);
+        return fileName;
+    }
+    public byte[] getUserImg(int userId) throws Exception {
+        String imagePath = repository.getUserProfileImg(userId);
+        if(imagePath == null){
+            throw new FileNotFoundException("Image not found.");
+        }
+        Path filePath = Paths.get(UPLOAD_DIR, imagePath);
+        return Files.readAllBytes(filePath);
+    }
 
     public UserService(UserRepository repository) {
         this.repository = repository;
@@ -109,4 +134,7 @@ public class UserService {
 
         return result;
     }
+
+
+
 }

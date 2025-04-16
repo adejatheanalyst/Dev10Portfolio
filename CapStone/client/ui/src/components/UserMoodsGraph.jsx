@@ -18,7 +18,7 @@ export default function UserMoodsGraph({loggedIn, formattedDate}) {
     const [userMoods, setUserMoods] = useState([]);
     const params = useParams()
           useEffect(() => {
-            fetch(`http://localhost:8080/api/userMood/myMoods/${formattedDate}`, {
+            fetch(`${import.meta.env.VITE_APP_API_URL}/userMood/myMoods/${formattedDate}`, {
                 method: "GET",
                 headers: {
                     Authorization: loggedIn.userId

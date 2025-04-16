@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function ReplyList({ loggedIn, moodViceId }) {
     const [replies, setReplies] = useState([]);
    const[reply , setReply] = useState({title: "", body: "", moodId: ""})
-    const navigate = useNavigate();
+   
     const [errors, setErrors] = useState([]);
     console.log(moodViceId)
 
@@ -14,7 +14,7 @@ export default function ReplyList({ loggedIn, moodViceId }) {
             console.log("moodViceId is undefined")
             setReply({title: "", body: "", moodId: ""})
         }else{
-        fetch(`http://localhost:8080/api/reply/moodVice/${moodViceId}`)
+        fetch(`${import.meta.env.VITE_APP_API_URL}/reply/moodVice/${moodViceId}`)
             .then(res => res.json())
             .then(fetchReplies => {
                 setReplies(fetchReplies);

@@ -1,0 +1,20 @@
+services:
+  # 1. database
+  db:
+    image: mariadb:10.7.3
+    environment:
+      - MYSQL_ROOT_PASSWORD=top-secret
+    volumes:
+      - maria-data:/var/lib/mysql
+  # 2. database adminstration
+  admin:
+    image: adminer:4
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    restart: unless-stopped
+# 3.
+volumes:
+  maria-data:
+    driver: local

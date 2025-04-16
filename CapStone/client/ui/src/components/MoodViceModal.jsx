@@ -20,7 +20,7 @@ export default function MoodViceModal({isOpen, onClose, moodVice, mode, loggedIn
                 console.log("moodViceId is undefined")
                 setMoodVice({title: "", body: "", userId: loggedIn.userId, moodId: ""});
             }else{
-                fetch(`http://localhost:8080/api/moodVice/${params.moodViceId}`)
+                fetch(`${import.meta.env.VITE_APP_API_URL}/moodVice/${params.moodViceId}`)
                 .then(response =>{
                     if(response.status >= 200 && response.status < 300){
                         response.json().then(res => setMoodVice(res))

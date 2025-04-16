@@ -56,7 +56,7 @@ export default function Home({loggedIn}) {
                 navigate("/login")
             }
             evt.preventDefault()
-            fetch('http://localhost:8080/api/userMood', {
+            fetch(`${import.meta.env.VITE_APP_API_URL}/userMood`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

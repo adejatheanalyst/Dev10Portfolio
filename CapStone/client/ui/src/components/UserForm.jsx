@@ -15,7 +15,7 @@ const [errors, setErrors] = useState([])
 
 const handleSubmit = (evt) => {
     evt.preventDefault()
-    fetch('http://localhost:8080/api/user', {
+    fetch(`${import.meta.env.VITE_APP_API_URL}/user`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

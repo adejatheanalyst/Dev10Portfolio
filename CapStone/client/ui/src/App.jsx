@@ -14,12 +14,9 @@ import MoodCharts from './components/MoodCharts';
 import CreateMoodVice from './components/CreateMoodVice';
 import ReplyList from './components/ReplyList';
 import UserAccount from './components/UserAccount';
-import { Button, HStack } from "@chakra-ui/react";
 import Home from './components/Home';
-import EditReply from './components/editReply';
-import { ChakraProvider } from "@chakra-ui/react";
+import EditReply from './components/EditReply';
 import {Cloudinary} from "@cloudinary/url-gen";
-import { AdvancedImage } from "@cloudinary/react";
 import {fill} from "@cloudinary/url-gen/actions/resize";
 
 

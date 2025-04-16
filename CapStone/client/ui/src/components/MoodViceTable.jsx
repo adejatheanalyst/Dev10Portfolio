@@ -19,7 +19,7 @@ export default function MoodViceTable({moodVices,setMoodVices, loggedIn}){
       const handleDelete = (moodVice) => {
         console.log(moodVice.moodViceId);
         if(loggedIn.userId === moodVice.userId){
-        fetch(`http://localhost:8080/api/moodVice/${moodVice.moodViceId}`, {
+        fetch(`${import.meta.env.VITE_APP_API_URL}/moodVice/${moodVice.moodViceId}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

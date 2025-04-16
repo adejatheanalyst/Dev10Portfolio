@@ -19,7 +19,7 @@ export default function MoodMedia(){
 
 
     useEffect(() => {
-          fetch(`http://localhost:8080/api/media/mood/${moodId}`)
+          fetch(`${import.meta.env.VITE_APP_API_URL}/media/mood/${moodId}`)
           .then(response => response.json())
             .then(data => {
               if(Array.isArray(data)){

@@ -16,7 +16,7 @@ export default function MoodCharts({loggedIn, setloggedIn}){
   const formattedDate = value.toISOString().split("T")[0];
 
             const handleClick = () =>{
-                fetch(`http://localhost:8080/api/userMood/myMoods/${formattedDate}`, {
+                fetch(`${import.meta.env.VITE_APP_API_URL}/userMood/myMoods/${formattedDate}`, {
                     method: "GET",
                     headers: {
                         Authorization: loggedIn.userId

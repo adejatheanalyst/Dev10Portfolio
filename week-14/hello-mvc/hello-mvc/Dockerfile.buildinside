@@ -1,0 +1,12 @@
+FROM eclipse-temurin:17-alpine
+# 1. Index the latest Alpine packages.
+RUN apk update
+# 2. Install Maven.
+RUN apk add maven
+WORKDIR /home/app
+# 3. Safe to copy everything because of .dockerignore
+COPY . .
+# 4. Build and package.
+RUN mvn package -DskipTests -f pom.xml
+# 5. Run the jar.
+CMD ["java", "-jar", "./target/hello-mvc-0.0.1.jar"]

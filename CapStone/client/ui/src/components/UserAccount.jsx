@@ -27,7 +27,7 @@ export default function UserAccount({loggedIn, setLoggedIn}){
         const formData = new FormData();
         formData.append("file", file);
 
-        const response = await fetch(`http://localhost:8080/api/user/${loggedIn.userId}/profileImg`, {
+        const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/user/${loggedIn.userId}/profileImg`, {
             method: "POST",
             body: formData,
             headers: {
@@ -45,7 +45,7 @@ export default function UserAccount({loggedIn, setLoggedIn}){
                 }
 function handleSubmit(evt){
     evt.preventDefault()
-    fetch(`http://localhost:8080/api/user/${loggedIn.userId}`, {
+    fetch(`${import.meta.env.VITE_APP_API_URL}/user/${loggedIn.userId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

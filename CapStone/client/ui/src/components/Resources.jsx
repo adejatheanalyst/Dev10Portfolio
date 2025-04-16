@@ -6,7 +6,7 @@ export default function Resources() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/resource")
+        fetch(`${import.meta.env.VITE_APP_API_URL}/resource`)
         .then(res => res.json()
         .then(fetchResources => {
             setLoading(false)

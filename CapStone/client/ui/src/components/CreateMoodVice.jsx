@@ -26,7 +26,7 @@ export default function({loggedIn, setLoggedIn}){
             console.log("moodViceId is undefined")
             setMoodVice({title: "", body: "", userId: loggedIn.userId, moodId: ""});
         }else{
-            fetch(`http://localhost:8080/api/moodVice/${params.moodViceId}`)
+            fetch(`${import.meta.env.VITE_APP_API_URL}/moodVice/${params.moodViceId}`)
             .then(response =>{
                 if(response.status >= 200 && response.status < 300){
                     response.json().then(res => setMoodVice(res))
@@ -61,7 +61,7 @@ const handleCancel = (evt) =>{
 const handleSubmit = (evt) =>{
     evt.preventDefault()
     let method = "POST"
-    let url = "http://localhost:8080/api/moodVice"
+    let url = `${import.meta.env.VITE_APP_API_URL}/moodVice`
     if(params.moodViceId != undefined){
         method = "PUT"
         url += `/${params.moodViceId}`

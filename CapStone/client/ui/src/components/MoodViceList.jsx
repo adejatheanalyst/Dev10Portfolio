@@ -12,7 +12,7 @@ const navigate = useNavigate()
 
 
 useEffect(() => {
-    fetch("http://localhost:8080/api/moodVice")
+    fetch(`${import.meta.env.VITE_APP_API_URL}/moodVice`)
     .then(res => res.json()
     .then(fetchMoodVices => {
         setLoading(false)

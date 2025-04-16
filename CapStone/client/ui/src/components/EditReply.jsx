@@ -13,7 +13,7 @@ export default function EditReply({loggedIn}) {
         if (params.replyId === undefined) {
             console.log("replyId is undefined");
 
-            fetch(`http://localhost:8080/api/reply/${params.replyId}`)
+            fetch(`${import.meta.env.VITE_APP_API_URL}/reply/${params.replyId}`)
                 .then(res => {
                     if (res.status >= 200 && res.status < 300) {
                         res.json().then(res => setReply(res));

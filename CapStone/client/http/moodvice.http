@@ -1,4 +1,4 @@
-@url=http://localhost:8080/api/moodVice
+@url=http://localhost:8080/api/moodvice
 
 ###
 # GET /api/moodVice happy path

@@ -1,0 +1,8 @@
+a:first-of-type {
+  margin-left: 0;
+}
+
+a {
+  display: inline-block;
+  margin: 0.5rem 1.5rem
+}

@@ -1,0 +1,7 @@
+.git
+# IntelliJ
+.idea
+# NEW: Maven output
+target
+
+Dockerfile*

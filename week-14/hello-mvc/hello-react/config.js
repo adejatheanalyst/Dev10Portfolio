@@ -1,0 +1,1 @@
+window.HELLO_REACT_MESSAGE = "straw and hay";
